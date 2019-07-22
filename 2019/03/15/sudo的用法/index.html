@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="sudo," />
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="深度linux和ubuntu    apt-cache search # ——(package 搜索包)    apt-cache show #——(package 获取包的相关信息，如说明、大小、版本等)    sudo apt-get install # ——(package 安装包)sudo apt-get install # —–(package - - reinstall 重新安装包)">
+<meta name="keywords" content="sudo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sudo的用法">
 <meta property="og:url" content="http://yoursite.com/2019/03/15/sudo的用法/index.html">
 <meta property="og:site_name" content="kobe&#39;s blog">
 <meta property="og:description" content="深度linux和ubuntu    apt-cache search # ——(package 搜索包)    apt-cache show #——(package 获取包的相关信息，如说明、大小、版本等)    sudo apt-get install # ——(package 安装包)sudo apt-get install # —–(package - - reinstall 重新安装包)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-22T08:26:14.180Z">
+<meta property="og:updated_time" content="2019-07-22T08:44:11.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sudo的用法">
 <meta name="twitter:description" content="深度linux和ubuntu    apt-cache search # ——(package 搜索包)    apt-cache show #——(package 获取包的相关信息，如说明、大小、版本等)    sudo apt-get install # ——(package 安装包)sudo apt-get install # —–(package - - reinstall 重新安装包)">
@@ -299,8 +300,13 @@
       
 
       
-        <p>深度linux和ubuntu<br>    apt-cache search # ——(package 搜索包)<br>    apt-cache show #——(package 获取包的相关信息，如说明、大小、版本等)<br>    sudo apt-get install # ——(package 安装包)sudo apt-get install # —–(package - - reinstall 重新安装包)<br>    sudo apt-get -f install # —–(强制安装?#”-f = –fix-missing”当是修复安装吧…)<br>    <a id="more"></a><br>    sudo apt-get remove #—–(package 删除包)<br>    sudo apt-get remove - - purge # ——(package 删除包，包括删除配置文件等)<br>    sudo apt-get autoremove –purge # —-(package 删除包及其依赖的软件包+配置文件等（只对6.10有效，强烈推荐）)<br>    sudo apt-get update #——更新源<br>    sudo apt-get upgrade #——更新已安装的包<br>    sudo apt-get dist-upgrade # ———升级系统<br>    sudo apt-get dselect-upgrade #——使用 dselect 升级<br>    apt-cache depends #——-(package 了解使用依赖)<br>    apt-cache rdepends # ——(package 了解某个具体的依赖?#当是查看该包被哪些包依赖吧…)<br>    sudo apt-get build-dep # ——(package 安装相关的编译环境)<br>    apt-get source #——(package 下载该包的源代码)<br>    sudo apt-get clean &amp;&amp; sudo apt-get autoclean # ——–清理下载文件的存档 &amp;&amp; 只清理过时的包<br>    sudo apt-get check #——-检查是否有损坏的依赖<br>    apt-get install 的用法<br>    apt-get install <package><br>    下载 <package> 以及所有倚赖的包裹,同时进行包裹的安装或升级.如果某个包裹被设置了 hold (停止标志,就会被搁在一边(即不会被升级).更多 hold 细节请看下面.<br>     apt-get remove的用法<br>    apt-get remove [–purge]<br>    <package>移除 <package> 以及任何倚赖这个包裹的其它包裹.–purge 指明这个包裹应该被完全清除 (purged) ,更多信息请看 dpkg -P .<br>    apt-get update的用法<br>    apt-get update<br>    升级来自 Debian 镜像的包裹列表,如果你想安装当天的任何软件,至少每天运行一次,而且每次修改了/etc/apt/sources.list 后,必须执行.<br>    apt-get upgrade的用法<br>    apt-get upgrade [-u]<br>    升 级所以已经安装的包裹为最新可用版本.不会安装新的或移除老的包裹.如果一个包改变了倚赖关系而需要安装一个新的包裹,那么它将不会被升级,而是标志为 hold .apt-get update 不会升级被标志为 hold 的包裹<br>     (这个也就是 hold 的意思).请看下文如何手动设置包裹为 hold .我建议同时使用 ‘-u’ 选项,因为这样你就能看到哪些包裹将会被升级.<br>    apt-get dist-upgrade的用法<br>    apt-get dist-upgrade [-u]<br>    和 apt-get upgrade 类似,除了 dist-upgrade 会安装和移除包裹来满足倚赖关系.因此具有一定的危险性.<br>    apt-cache search的用法<br>    apt-cache search <pattern><br>    搜索满足 <pattern> 的包裹和描述.<br>    apt-cache show 的用法<br>    apt-cache show <package><br>    显示 <package> 的完整的描述.<br>    9<br>    apt-cache showpkg 的用法<br>    apt-cache showpkg <package><br>    显示 <package> 许多细节,以及和其它包裹的关系.</package></package></package></package></pattern></pattern></package></package></package></package></p>
-<p>centos 7 linux命令<br>    systemctl start  mysqld.service  启动mysql服务<br>    systemctl status mysqld.service  查看服务状态<br>    mysql -uroot -p     链接mysql<br>    yum list installed | grep php   列出phpan安装的信息<br>    yum remove php70w.x86_64     下载<br>    rpm -qa | grep mysql   查看MySQL安装信息<br>    centos安装PHP7.0 PHP-fpm nginx<br>    <a href="http://os.51cto.com/art/201703/534277.htm" target="_blank" rel="noopener">http://os.51cto.com/art/201703/534277.htm</a><br>    yum -y install epel-release<br>    yum -y install nginx<br>    rpm -Uvh <a href="https://mirror.webtatic.com/yum/el7/webtatic-release.rpm" target="_blank" rel="noopener">https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</a><br>    yum -y install php70w-fpm php70w-cli php70w-gd php70w-mcrypt php70w-mysql php70w-pear php70w-xml php70w-mbstring php70w-pdo php70w-json php70w-pecl-apcu php70w-pecl-apcu-devel<br>    sudo systemctl start php-fpm<br>    sudo systemctl start nginx<br>    sudo systemctl enable php-fpm<br>    sudo systemctl enable nginx<br>重启SSH服务，命令：systemctl restart sshd.service</p>
+        <p>深度linux和ubuntu<br>    apt-cache search # ——(package 搜索包)<br>    apt-cache show #——(package 获取包的相关信息，如说明、大小、版本等)<br>    sudo apt-get install # ——(package 安装包)sudo apt-get install # —–(package - - reinstall 重新安装包)<br>    sudo apt-get -f install # —–(强制安装?#”-f = –fix-missing”当是修复安装吧…)<br>    <a id="more"></a><br>    sudo apt-get remove #—–(package 删除包)<br>    sudo apt-get remove - - purge # ——(package 删除包，包括删除配置文件等)<br>    sudo apt-get autoremove –purge # —-(package 删除包及其依赖的软件包+配置文件等（只对6.10有效，强烈推荐）)<br>    sudo apt-get update #——更新源<br>    sudo apt-get upgrade #——更新已安装的包<br>    sudo apt-get dist-upgrade # ———升级系统<br>    sudo apt-get dselect-upgrade #——使用 dselect 升级<br>    apt-cache depends #——-(package 了解使用依赖)<br>    apt-cache rdepends # ——(package 了解某个具体的依赖?#当是查看该包被哪些包依赖吧…)<br>    sudo apt-get build-dep # ——(package 安装相关的编译环境)<br>    apt-get source #——(package 下载该包的源代码)<br>    sudo apt-get clean &amp;&amp; sudo apt-get autoclean # ——–清理下载文件的存档 &amp;&amp; 只清理过时的包<br>    sudo apt-get check #——-检查是否有损坏的依赖<br>    apt-get install <package><br>    apt-get remove的用法<br>    apt-get remove [–purge]<br>    apt-get update<br>    apt-cache search的用法<br>    apt-cache search <pattern><br>    apt-cache show 的用法<br>    apt-cache show <package><br>    apt-cache showpkg 的用法<br>    apt-cache showpkg <package></package></package></pattern></package></p>
+<pre><code>sudo systemctl start php-fpm 
+sudo systemctl start nginx 
+sudo systemctl enable php-fpm 
+sudo systemctl enable nginx  
+重启SSH服务，命令：systemctl restart sshd.service    
+</code></pre><p>centos 7 linux命令<br>    systemctl start  mysqld.service  启动mysql服务<br>    systemctl status mysqld.service  查看服务状态<br>    mysql -uroot -p     链接mysql<br>    yum list installed | grep php   列出phpan安装的信息<br>    yum remove php70w.x86_64     下载<br>    rpm -qa | grep mysql   查看MySQL安装信息<br>    centos安装PHP7.0 PHP-fpm nginx<br>    <a href="http://os.51cto.com/art/201703/534277.htm" target="_blank" rel="noopener">http://os.51cto.com/art/201703/534277.htm</a><br>    yum -y install epel-release<br>    yum -y install nginx<br>    rpm -Uvh <a href="https://mirror.webtatic.com/yum/el7/webtatic-release.rpm" target="_blank" rel="noopener">https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</a><br>    yum -y install php70w-fpm php70w-cli php70w-gd php70w-mcrypt php70w-mysql php70w-pear php70w-xml php70w-mbstring php70w-pdo php70w-json php70w-pecl-apcu php70w-pecl-apcu-devel</p>
 
       
     </div>
@@ -315,6 +321,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/sudo/" rel="tag"># sudo</a>
+          
+        </div>
       
 
       
@@ -405,7 +417,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -427,7 +439,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
