@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="sudo," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="深度linux和ubuntu    apt-cache search # ——(package 搜索包)    apt-cache show #——(package 获取包的相关信息，如说明、大小、版本等)    sudo apt-get install # ——(package 安装包)sudo apt-get install # —–(package - - reinstall 重新安装包)">
-<meta name="keywords" content="sudo">
+<meta name="description" content="talang。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sudo的用法">
-<meta property="og:url" content="http://yoursite.com/2019/03/15/sudo的用法/index.html">
+<meta property="og:title" content="talang work notes">
+<meta property="og:url" content="http://yoursite.com/2019/07/22/talang-work-notes/index.html">
 <meta property="og:site_name" content="kobe&#39;s blog">
-<meta property="og:description" content="深度linux和ubuntu    apt-cache search # ——(package 搜索包)    apt-cache show #——(package 获取包的相关信息，如说明、大小、版本等)    sudo apt-get install # ——(package 安装包)sudo apt-get install # —–(package - - reinstall 重新安装包)">
+<meta property="og:description" content="talang。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-22T08:51:05.370Z">
+<meta property="og:updated_time" content="2019-07-22T09:16:52.412Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sudo的用法">
-<meta name="twitter:description" content="深度linux和ubuntu    apt-cache search # ——(package 搜索包)    apt-cache show #——(package 获取包的相关信息，如说明、大小、版本等)    sudo apt-get install # ——(package 安装包)sudo apt-get install # —–(package - - reinstall 重新安装包)">
+<meta name="twitter:title" content="talang work notes">
+<meta name="twitter:description" content="talang。">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/15/sudo的用法/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/07/22/talang-work-notes/"/>
 
 
 
 
 
-  <title>sudo的用法 | kobe's blog</title>
+  <title>talang work notes | kobe's blog</title>
   
 
 
@@ -233,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/15/sudo的用法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/22/talang-work-notes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ayongxiao">
@@ -250,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">sudo的用法</h1>
+          <h1 class="post-title" itemprop="name headline">talang work notes</h1>
         
 
         <div class="post-meta">
@@ -262,8 +261,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T18:08:21+08:00">
-                2019-03-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-22T16:52:22+08:00">
+                2019-07-22
               </time>
             
 
@@ -286,6 +285,10 @@
           
 
           
+              <div class="post-description">
+                  talang。
+              </div>
+          
 
         </div>
       </header>
@@ -300,14 +303,49 @@
       
 
       
-        <p>深度linux和ubuntu<br>    apt-cache search # ——(package 搜索包)<br>    apt-cache show #——(package 获取包的相关信息，如说明、大小、版本等)<br>    sudo apt-get install # ——(package 安装包)sudo apt-get install # —–(package - - reinstall 重新安装包)<br>    sudo apt-get -f install # —–(强制安装?#”-f = –fix-missing”当是修复安装吧…)<br>    <a id="more"></a><br>    sudo apt-get remove #—–(package 删除包)<br>    sudo apt-get remove - - purge # ——(package 删除包，包括删除配置文件等)<br>    sudo apt-get autoremove –purge # —-(package 删除包及其依赖的软件包+配置文件等（只对6.10有效，强烈推荐）)<br>    sudo apt-get update #——更新源<br>    sudo apt-get upgrade #——更新已安装的包<br>    sudo apt-get dist-upgrade # ———升级系统<br>    sudo apt-get dselect-upgrade #——使用 dselect 升级<br>    apt-cache depends #——-(package 了解使用依赖)<br>    apt-cache rdepends # ——(package 了解某个具体的依赖?#当是查看该包被哪些包依赖吧…)<br>    sudo apt-get build-dep # ——(package 安装相关的编译环境)<br>    apt-get source #——(package 下载该包的源代码)<br>    sudo apt-get clean &amp;&amp; sudo apt-get autoclean # ——–清理下载文件的存档 &amp;&amp; 只清理过时的包<br>    sudo apt-get check #——-检查是否有损坏的依赖<br>    apt-get install <package><br>    apt-get remove的用法<br>    apt-get remove [–purge]<br>    apt-get update<br>    apt-cache search的用法<br>    apt-cache search <pattern><br>    apt-cache show 的用法<br>    apt-cache show <package><br>    apt-cache showpkg 的用法<br>    apt-cache showpkg <package></package></package></pattern></package></p>
-<pre><code>sudo systemctl start php-fpm 
-sudo systemctl start nginx 
-sudo systemctl enable php-fpm 
-sudo systemctl enable nginx  
-重启SSH服务，命令：systemctl restart sshd.service    
-</code></pre><p>centos 7 linux命令<br>    systemctl start  mysqld.service  启动mysql服务<br>    systemctl status mysqld.service  查看服务状态<br>    mysql -uroot -p     链接mysql<br>    yum list installed | grep php   列出phpan安装的信息<br>    yum remove php70w.x86_64     下载<br>    rpm -qa | grep mysql   查看MySQL安装信息<br>    centos安装PHP7.0 PHP-fpm nginx<br>    <a href="http://os.51cto.com/art/201703/534277.htm" target="_blank" rel="noopener">http://os.51cto.com/art/201703/534277.htm</a><br>    yum -y install epel-release<br>    yum -y install nginx<br>    rpm -Uvh <a href="https://mirror.webtatic.com/yum/el7/webtatic-release.rpm" target="_blank" rel="noopener">https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</a><br>    yum -y install php70w-fpm php70w-cli php70w-gd php70w-mcrypt php70w-mysql php70w-pear php70w-xml php70w-mbstring php70w-pdo php70w-json php70w-pecl-apcu php70w-pecl-apcu-devel</p>
+        <p>talang–notes<br>    sz DashboardController.php 保存服务器文件到本地<br>    php -f encrypt.php &gt;test.txt<br>    再redis-cli  SADD time_user_whitelist 84 假如白名单</p>
+<pre><code>SISMEMBER time_user_whitelist 333  //判断uid333在不在白名单
+SCARD time_user_whitelist    //获取集合个数
+SMEMBERS key    //获取集合所有成员
 
+Ctrl + H
+输入^，然后Find All，查找所有的行首
+输入$，然后Find All，查找所有的行尾
+
+const NEW_ORDER        = 10;//新订单
+const AUDIT_LOADING    = 40;//审批中
+const AUDIT_SUCCESS    = 60;//审批成功
+const AUDIT_REFUSED    = 50;//审批拒绝
+const BLACK_REFUSED    = 30;//欺诈拒绝
+const WAIT_INVESTOR    = 75;//待资金方确认
+const LENDING_LOADING  = 80;//放款处理中
+const AGAIN_LENDING    = 85;//待重新放款
+const LENDING_SUCCESS  = 90;//放款成功
+const LENDING_FAILED   = 100;//放款失败
+const ROLLOVER_DEAL    = 115;//展期处理中
+const PREREPAY_LOADING = 130;//提前还款处理中
+const NORMAL_LOADING   = 110;//正常还款中
+const LOAN_CANCEL      = 70;//贷款取消
+const PRE_SETTLE       = 150;//提前结清
+const NORMAL_SETTLE    = 140;//正常结清
+const OVERDUE_SETTLE   = 160;//逾期结清
+const OVERDUE          = 120;//已逾期
+
+***core.repayment_plan表里status的值 有 1 2 3 4 5 6 这些状态********** select id,`status` FROM core.repayment_plan where 1=1 GROUP BY `status`;
+        状态：1 新建，2 成功，3 失败，4 由于提前还款账单取消 5 已申请提前还款 6 还款处理中 7 因提前还款失败而废弃 8 展期处理中 9 展期成功 10 因展期成功而废弃
+
+***core.repayment_plan表里overdue_status的值 有 0 1 这些状态********** select id,`overdue_status` FROM core.repayment_plan where 1=1 GROUP BY `overdue_status`;
+        还款计划是否有过逾期  0-未逾过期 1-逾过期 
+
+***core.repayment_fees表里type的值 有 1 2 3 这些状态********** select id,`type` FROM core.repayment_fees where 1=1 GROUP BY `type`;
+        还款类型，1 一次性服务费,2 正常还款,3 提前还款
+
+***core.repayment_fees表里fee_type的值 有 1 2 3 4 这些状态********** select id,`fee_type` FROM core.repayment_fees where 1=1 GROUP BY `fee_type`;
+        还款的费用类型，1 本金,2 利息, 3 一次性服务费, 4 逾期利息   5//展期服务费
+
+***core.repayment_fees表里status的值 有 1 2 3 4 5 6 这些状态********** select id,`status` FROM core.repayment_fees where 1=1 GROUP BY `status`;
+        费用状态，已经结清，部分结清，未结清     ????????   同   状态：1 新建，2 成功，3 失败，4 由于提前还款账单取消 5 已申请提前还款 6 还款处理中 7 因提前还款失败而废弃 8 展期处理中 9 展期成功 10 因展期成功而废弃  
+</code></pre>
       
     </div>
     
@@ -322,12 +360,6 @@ sudo systemctl enable nginx
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/sudo/" rel="tag"># sudo</a>
-          
-        </div>
-      
 
       
       
@@ -337,8 +369,8 @@ sudo systemctl enable nginx
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/15/git使用命令/" rel="next" title="git使用命令">
-                <i class="fa fa-chevron-left"></i> git使用命令
+              <a href="/2019/07/22/hexo笔记/" rel="next" title="hexo笔记">
+                <i class="fa fa-chevron-left"></i> hexo笔记
               </a>
             
           </div>
@@ -347,8 +379,8 @@ sudo systemctl enable nginx
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/22/hexo笔记/" rel="prev" title="hexo笔记">
-                hexo笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/22/devops-api-notes/" rel="prev" title="devops-api notes">
+                devops-api notes <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
