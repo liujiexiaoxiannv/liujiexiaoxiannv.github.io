@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[php面试题一]]></title>
+    <url>%2F2019%2F07%2F25%2Fphp%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B8%80%2F</url>
+    <content type="text"><![CDATA[1 写一个函数，获取一篇文章内容中的全部图片，并下载 $html = file_get_contents($url); preg_match_all(‘/&lt;img[^&gt;]src=”([^”])”[^&gt;]&gt;/i’,$html, $matchs); //2、什么是CSRF攻击？XSS攻击？如何防范？ 防范方式: CSRF TOKEN, 即提交表单时同时提交一段由服务端渲染表单时生成的token,通过校验token来防范csrf攻击 简单来说,XSS就是正常页面执行了用户或黑客提交的前端代码,比如你用了eval(‘这里执行了用户提交的代码’), 或者你的页面正常解析了用户提交的html代码,如用户提交的个人信息是:window.href=”恶意网站连接”, 而你不加过滤转义就入库,然后页面正常解析html代码,最终用户访问这个页面就会跳转到恶意网站 ,这就是XSS 防范方式: 过滤&amp;&amp;转义用户输入(如htmlentities、htmlspecialchars),永久不要信任客户端3 应用中我们经常会遇到在user表随机调取10条数据来展示的情况，简述你如何实现该功能。 select from user where rand() limit 10;4 MYSQL中主键与唯一索引的区别 主键是一种约束，唯一索引是一种索引，两者在本质上是不同的 主键创建后一定包含一个唯一性索引，唯一性索引并不一定就是主键 唯一性索引列允许空值，而主键列不允许为空值 主键列在创建时，已经默认为空值 + 唯一索引了 主键可以被其他表引用为外键，而唯一索引不能 一个表最多只能创建一个主键，但可以创建多个唯一索引 主键更适合那些不容易更改的唯一标识，如自动递增列、身份证号等 在 RBO 模式下，主键的执行计划优先级要高于唯一索引。 两者可以提高查询的速度5 http状态码及其含意 200 - 请求成功 301 - 资源（网页等）被永久转移到其它URL 404 - 请求的资源（网页等）不存在 500 - 内部服务器错误 300 种选择。请求的资源可包括多个位置，相应可返回一个资源特征与地址的列表用于用户终端（例如：浏览器）选择 302 临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI 400 客户端请求的语法错误，服务器无法理解 401 请求要求用户的身份认证 403 服务器理解请求客户端的请求，但是拒绝执行此请求 501 服务器不支持请求的功能，无法完成请求 502 充当网关或代理的服务器，从远端服务器接收到了一个无效的请求]]></content>
+      <categories>
+        <category>php</category>
+      </categories>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[linux常用命令]]></title>
     <url>%2F2019%2F07%2F25%2Flinux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[1 netstat -anp 显示系统端口使用情况 lsof -i :80 显示占用80端口的进程情况 uname -a 内核信息 cat /proc/interrupts 显示中断信息 netstat -ntlp //查看当前所有tcp端口 netstat -ntulp |grep 80 //查看所有80端口使用情况 -t (tcp) 仅显示tcp相关选项 -u (udp)仅显示udp相关选项 -n 拒绝显示别名，能显示数字的全部转化为数字 -l 仅列出在Listen(监听)的服务状态 -p 显示建立相关链接的程序名 netstat -an | grep 3306 //查看所有3306端口使用情况 telnet ip 80 方式测试远程主机80是否打开 2 查看文件内容 cat 可以加more 、less控制输出的内容的大小 cat a.text | more chown -R www:www timeapi 修改timeapi目录为www:www 递归子目录修改： chown -R tuxapp source/ 增加脚本可执行权限： chmod a+x myscript 文本替换 sed sed [options] &apos;command&apos; file(s) 首处替换 sed &apos;s/text/replace_text/&apos; file //替换每一行的第一处匹配的text 全局替换 sed &apos;s/text/replace_text/g&apos; file 移除空白行 sed &apos;/^$/d&apos; file sed &apos;s/book/books/&apos; file #替换文本中的字符串： sed &apos;s/book/books/g&apos; file sed &apos;/^$/d&apos; file #删除空白行 tail -n 24 可以指定显示行数 查看文件的前多少行 head -n100 filename 3 数据流处理awk #统计日志中访问最多的10个IP awk &apos;{a[$1]++}END{for(i in a)print a[i],i|&quot;sort -k1 -nr|head -n10&quot;}&apos; access.log 消除重复行 sort unsort.txt | uniq 4 统计 wc wc -l fileA // 统计A文件行数 wc -w file // 统计单词数 wc -c file // 统计字符数]]></content>
