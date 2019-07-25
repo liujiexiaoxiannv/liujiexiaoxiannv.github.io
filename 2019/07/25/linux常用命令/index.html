@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="kobe&#39;s blog">
 <meta property="og:description" content="linux常用命令笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-25T07:00:17.982Z">
+<meta property="og:updated_time" content="2019-07-25T07:50:16.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令">
 <meta name="twitter:description" content="linux常用命令笔记。">
@@ -383,7 +383,16 @@ sed &apos;/^$/d&apos; file
 sed &apos;s/book/books/&apos; file #替换文本中的字符串：
 sed &apos;s/book/books/g&apos; file
 sed &apos;/^$/d&apos; file #删除空白行
+
+tail -n 24 可以指定显示行数
+查看文件的前多少行 head -n100 filename
 </code></pre><p>3   数据流处理awk</p>
+<pre><code>#统计日志中访问最多的10个IP
+awk &apos;{a[$1]++}END{for(i in a)print a[i],i|&quot;sort -k1 -nr|head -n10&quot;}&apos; access.log
+
+消除重复行
+sort unsort.txt | uniq
+</code></pre><p>4   统计 wc<br>    wc -l fileA // 统计A文件行数<br>    wc -w file // 统计单词数<br>    wc -c file // 统计字符数</p>
 
       
     </div>
@@ -504,10 +513,10 @@ sed &apos;/^$/d&apos; file #删除空白行
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
-                
+                </a>
               </div>
             
 
@@ -515,10 +524,10 @@ sed &apos;/^$/d&apos; file #删除空白行
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
