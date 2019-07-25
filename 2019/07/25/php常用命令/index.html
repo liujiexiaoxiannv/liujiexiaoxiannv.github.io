@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="php linux," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="git简单记点笔记。">
-<meta name="keywords" content="git">
+<meta name="description" content="php常用命令笔记。">
+<meta name="keywords" content="php linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git使用命令">
-<meta property="og:url" content="http://yoursite.com/2019/03/15/git使用命令/index.html">
+<meta property="og:title" content="php常用命令">
+<meta property="og:url" content="http://yoursite.com/2019/07/25/php常用命令/index.html">
 <meta property="og:site_name" content="kobe&#39;s blog">
-<meta property="og:description" content="git简单记点笔记。">
+<meta property="og:description" content="php常用命令笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-22T08:50:59.743Z">
+<meta property="og:updated_time" content="2019-07-25T06:50:38.355Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git使用命令">
-<meta name="twitter:description" content="git简单记点笔记。">
+<meta name="twitter:title" content="php常用命令">
+<meta name="twitter:description" content="php常用命令笔记。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/15/git使用命令/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/07/25/php常用命令/"/>
 
 
 
 
 
-  <title>git使用命令 | kobe's blog</title>
+  <title>php常用命令 | kobe's blog</title>
   
 
 
@@ -267,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/15/git使用命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/25/php常用命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ayongxiao">
@@ -284,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git使用命令</h1>
+          <h1 class="post-title" itemprop="name headline">php常用命令</h1>
         
 
         <div class="post-meta">
@@ -296,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T17:53:28+08:00">
-                2019-03-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-25T12:27:19+08:00">
+                2019-07-25
               </time>
             
 
@@ -306,6 +306,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -326,7 +348,7 @@
 
           
               <div class="post-description">
-                  git简单记点笔记。
+                  php常用命令笔记。
               </div>
           
 
@@ -343,15 +365,21 @@
       
 
       
-        <p>常用git命令<br>    git clone <em>**</em> 建仓库<br>    cd 到仓库<br>    git status  查看当前状态<br>    git pull origin master （加入本地现在是master分支）<br>    git checkout -b KF-660  基于master分支建一个本地KF-660<br>    <a id="more"></a><br>git设置alias<br>    [alias]<br>    st = status<br>    co = checkout<br>    ci = commit<br>    br = branch<br>    rt = remote<br>    last = log -1 –name-status<br>    al = log –pretty=format:’%h %cn -%d %s (%cd)’ –abbrev-commit -30<br>    l = log –graph –pretty=format:’%Cred%h%Creset %Cgreen%cn -%C(cyan)%d%Creset %s %Cgreen(%cd)%Creset’ –abbrev-commit -30<br>    ll = log –name-status –graph –pretty=format:’%Cred%h%Creset %Cgreen%cn -%C(cyan)%d%Creset %s %Cgreen(%cd)%Creset’ –abbrev-commit -10</p>
-<p>现在让我们来重置回第一次提交的状态：<br>    git status<br>    git checkout 文件名　　取消修改某文件<br>    git log<br>    git reset –hard b7057a9  本地回滚到上次的某个版本号<br>    git status          回滚后,再次查看当前本地分支状态<br>    git add .<br>    git commit -m ‘增加’  提交<br>    git pull origin KF-660  拉去远端最新的KF-660<br>    git push origin KF-660　推到远端KF-660分支<br>    git checkout develop<br>    git pull origin develop　拉去最新的develop分支<br>    git merge KF-660    develop分支合KF-660的代码<br>    git push origin develop  推到远端的develop分支<br>推到正式<br>    git checkout master<br>    git pull origin master<br>    git merge KF-660<br>    git push origin master<br>    git tag v1.1.5.35      打一个tag号<br>    git push origin v1.1.5.35</p>
-<p>查找问题–查看文件改动<br>    git blame -L 183,+100 app/controllers/web/NewsController.php  查看某个文件第183行的改动记录，取100行记录<br>    git log –pretty=oneline app/controllers/web/NewsController.php　　文件的所有的改动历史       </p>
-<p>查看、添加、提交、删除、找回，重置修改文件<br>    git help <command> # 显示command的help<br>    git show # 显示某次提交的内容 git show $id<br>    git co – <file> # 抛弃工作区修改<br>    git co . # 抛弃工作区修改<br>    git add <file> # 将工作文件修改提交到本地暂存区<br>    git add . # 将所有修改过的工作文件提交暂存区<br>    git rm <file> # 从版本库中删除文件<br>    git rm <file> –cached # 从版本库中删除文件，但不删除文件<br>    git reset <file> # 从暂存区恢复到工作文件<br>    git reset – . # 从暂存区恢复到工作文件<br>    git reset –hard # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改<br>    git ci <file> git ci . git ci -a # 将git add, git rm和git ci等操作都合并在一起做　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<br>    git ci -am “some comments”<br>    git ci –amend # 修改最后一次提交记录<br>    git revert &lt;$id&gt; # 恢复某次提交的状态，恢复动作本身也创建次提交对象<br>    git revert HEAD # 恢复最后一次提交的状态</file></file></file></file></file></file></p>
-<p>查看文件diff<br>    git diff <file> # 比较当前文件和暂存区文件差异 git diff<br>    git diff <id1><id1><id2> # 比较两次提交之间的差异<br>    git diff <branch1>..<branch2> # 在两个分支之间比较<br>    git diff –staged # 比较暂存区和版本库差异<br>    git diff –cached # 比较暂存区和版本库差异<br>    git diff –stat # 仅仅比较统计信息</branch2></branch1></id2></id1></id1></file></p>
-<p>查看提交记录<br>    git log git log <file> # 查看该文件每次提交记录<br>    git log -p <file> # 查看每次详细修改内容的diff<br>    git log -p -2 # 查看最近两次详细修改内容的diff<br>    git log –stat #查看提交统计信息</file></file></p>
-<p>一般配置<br>    git –version   //查看git的版本信息<br>    git config –global user.name   //获取当前登录的用户<br>    git config –global user.email  //获取当前登录用户的邮箱<br>    git config –global user.name ‘userName’    //设置git账户，userName为你的git账号，<br>    git config –global user.email ‘email’</p>
-<p>友情链接<br>    <a href="https://sinchie.com/posts/git-remark/" target="_blank" rel="noopener">https://sinchie.com/posts/git-remark/</a><br>比较的是历史区和工作区的差异（修改）<br>    git diff master<br>撤回内容<br>(如果修改了工作区的文件后发现改错了，可以用暂存区或者版本库里的文件替换掉工作区的文件)<br>用暂存区中的内容或者版本库中的内容覆盖掉工作区<br>    git checkout index.html<br>取消增加到暂存区的内容（添加时）<br>    git reset HEAD index.html<br>//显示目录的状体 有没有添加或者修改文件<br>    git status</p>
+        <p>1、PHP运行指定文件<br>    php -f  test.php (-f 可省略)</p>
+<p>2、命令行直接运行PHP代码<br>    php -r “phpinfo();”<br>    如果结果太长，还可以 php -r “phpinfo();” | less 分页展示</p>
+<p>3、交互模式运行PHP<br>    php -a<br>    php &gt; echo (2+3);<br>    5</p>
+<pre><code>control + c/z 或者 exit 退出交互模式
+</code></pre><p>4、PHP脚本作为shell脚本运行<br>    没有权限则切换到root用户 sudo su<br>    echo ‘#!/usr/bin/php\n&lt;?php var_dump($argv); ?&gt;’ &gt; phpscript</p>
+<pre><code>#累计数据快照
+1 0 * * * flock -xn /home/rong/crontab/UnderRepaymentTimeoutdone.lock -c &apos;/usr/bin/php /home/rong/www/time-order/webroot/command.php HistorySnapshot InsertHistoryData&apos;
+</code></pre><p>5、其他常用命令<br>    php -m 内置及Zend加载的模块<br>    php -i 等价于 phpinfo()<br>    php -i | grep php.ini 查看php配置文件加载路径<br>    php –ini 同上<br>    php -v 查看php版本<br>    php –version 同上<br>    php –re 查看是否安装相应的扩展 如 php –re gd  </p>
+<p>6   php -S<br>    这个内置的Web服务器主要用于本地开发使用，不可用于线上产品环境。<br>    如果请求未指定执行哪个PHP文件，则默认执行目录内的index.php 或者 index.html。如果这两个文件都不存在，服务器会返回404错误。<br>    当你在命令行启动这个Web Server时，如果指定了一个PHP文件，则这个文件会作为一个“路由”脚本，意味着每次请求都会先执行这个脚本。如果这个脚本返回 FALSE ，那么直接返回请求的文件（例如请求静态文件不作任何处理）。否则会把输出返回到浏览器。</p>
+<pre><code>php -S localhost:8000   服务于当前目录
 
+php -S localhost:8000 -t foo/    启动时指定根目录 
+
+php -S localhost:8000 router.php   使用路由（Router）脚本
+</code></pre>
       
     </div>
     
@@ -368,7 +396,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/php-linux/" rel="tag"># php linux</a>
           
         </div>
       
@@ -381,8 +409,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/06/welcome-to-my-blog/" rel="next" title="welcome to kobe's blog">
-                <i class="fa fa-chevron-left"></i> welcome to kobe's blog
+              <a href="/2019/07/22/devops-api-notes/" rel="next" title="devops-api notes">
+                <i class="fa fa-chevron-left"></i> devops-api notes
               </a>
             
           </div>
@@ -391,8 +419,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/15/sudo的用法/" rel="prev" title="sudo的用法">
-                sudo的用法 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/25/linux常用命令/" rel="prev" title="linux常用命令">
+                linux常用命令 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

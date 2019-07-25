@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,16 @@
 
 
 
-<meta name="description" content="git简单记点笔记。">
-<meta name="keywords" content="git">
-<meta property="og:type" content="article">
-<meta property="og:title" content="git使用命令">
-<meta property="og:url" content="http://yoursite.com/2019/03/15/git使用命令/index.html">
+<meta name="description" content="IMHD">
+<meta property="og:type" content="website">
+<meta property="og:title" content="kobe&#39;s blog">
+<meta property="og:url" content="http://yoursite.com/tags/linux/index.html">
 <meta property="og:site_name" content="kobe&#39;s blog">
-<meta property="og:description" content="git简单记点笔记。">
+<meta property="og:description" content="IMHD">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-22T08:50:59.743Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git使用命令">
-<meta name="twitter:description" content="git简单记点笔记。">
+<meta name="twitter:title" content="kobe&#39;s blog">
+<meta name="twitter:description" content="IMHD">
 
 
 
@@ -120,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/15/git使用命令/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/linux/"/>
 
 
 
 
 
-  <title>git使用命令 | kobe's blog</title>
+  <title>标签: linux | kobe's blog</title>
   
 
 
@@ -145,7 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -253,167 +251,54 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>linux<small>标签</small>
+        </h1>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/15/git使用命令/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ayongxiao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="kobe's blog">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">git使用命令</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/2019/07/25/linux常用命令/" itemprop="url">
               
-                <span class="post-meta-item-text">发表于</span>
+                <span itemprop="name">linux常用命令</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T17:53:28+08:00">
-                2019-03-15
-              </time>
-            
+            </a>
+        
+      </h2>
 
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-07-25T14:47:11+08:00"
+              content="2019-07-25" >
+          07-25
+        </time>
+      </div>
 
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span id="busuanzi_value_page_pv"></span>次阅读
-          
-
-          
-
-          
-              <div class="post-description">
-                  git简单记点笔记。
-              </div>
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>常用git命令<br>    git clone <em>**</em> 建仓库<br>    cd 到仓库<br>    git status  查看当前状态<br>    git pull origin master （加入本地现在是master分支）<br>    git checkout -b KF-660  基于master分支建一个本地KF-660<br>    <a id="more"></a><br>git设置alias<br>    [alias]<br>    st = status<br>    co = checkout<br>    ci = commit<br>    br = branch<br>    rt = remote<br>    last = log -1 –name-status<br>    al = log –pretty=format:’%h %cn -%d %s (%cd)’ –abbrev-commit -30<br>    l = log –graph –pretty=format:’%Cred%h%Creset %Cgreen%cn -%C(cyan)%d%Creset %s %Cgreen(%cd)%Creset’ –abbrev-commit -30<br>    ll = log –name-status –graph –pretty=format:’%Cred%h%Creset %Cgreen%cn -%C(cyan)%d%Creset %s %Cgreen(%cd)%Creset’ –abbrev-commit -10</p>
-<p>现在让我们来重置回第一次提交的状态：<br>    git status<br>    git checkout 文件名　　取消修改某文件<br>    git log<br>    git reset –hard b7057a9  本地回滚到上次的某个版本号<br>    git status          回滚后,再次查看当前本地分支状态<br>    git add .<br>    git commit -m ‘增加’  提交<br>    git pull origin KF-660  拉去远端最新的KF-660<br>    git push origin KF-660　推到远端KF-660分支<br>    git checkout develop<br>    git pull origin develop　拉去最新的develop分支<br>    git merge KF-660    develop分支合KF-660的代码<br>    git push origin develop  推到远端的develop分支<br>推到正式<br>    git checkout master<br>    git pull origin master<br>    git merge KF-660<br>    git push origin master<br>    git tag v1.1.5.35      打一个tag号<br>    git push origin v1.1.5.35</p>
-<p>查找问题–查看文件改动<br>    git blame -L 183,+100 app/controllers/web/NewsController.php  查看某个文件第183行的改动记录，取100行记录<br>    git log –pretty=oneline app/controllers/web/NewsController.php　　文件的所有的改动历史       </p>
-<p>查看、添加、提交、删除、找回，重置修改文件<br>    git help <command> # 显示command的help<br>    git show # 显示某次提交的内容 git show $id<br>    git co – <file> # 抛弃工作区修改<br>    git co . # 抛弃工作区修改<br>    git add <file> # 将工作文件修改提交到本地暂存区<br>    git add . # 将所有修改过的工作文件提交暂存区<br>    git rm <file> # 从版本库中删除文件<br>    git rm <file> –cached # 从版本库中删除文件，但不删除文件<br>    git reset <file> # 从暂存区恢复到工作文件<br>    git reset – . # 从暂存区恢复到工作文件<br>    git reset –hard # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改<br>    git ci <file> git ci . git ci -a # 将git add, git rm和git ci等操作都合并在一起做　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<br>    git ci -am “some comments”<br>    git ci –amend # 修改最后一次提交记录<br>    git revert &lt;$id&gt; # 恢复某次提交的状态，恢复动作本身也创建次提交对象<br>    git revert HEAD # 恢复最后一次提交的状态</file></file></file></file></file></file></p>
-<p>查看文件diff<br>    git diff <file> # 比较当前文件和暂存区文件差异 git diff<br>    git diff <id1><id1><id2> # 比较两次提交之间的差异<br>    git diff <branch1>..<branch2> # 在两个分支之间比较<br>    git diff –staged # 比较暂存区和版本库差异<br>    git diff –cached # 比较暂存区和版本库差异<br>    git diff –stat # 仅仅比较统计信息</branch2></branch1></id2></id1></id1></file></p>
-<p>查看提交记录<br>    git log git log <file> # 查看该文件每次提交记录<br>    git log -p <file> # 查看每次详细修改内容的diff<br>    git log -p -2 # 查看最近两次详细修改内容的diff<br>    git log –stat #查看提交统计信息</file></file></p>
-<p>一般配置<br>    git –version   //查看git的版本信息<br>    git config –global user.name   //获取当前登录的用户<br>    git config –global user.email  //获取当前登录用户的邮箱<br>    git config –global user.name ‘userName’    //设置git账户，userName为你的git账号，<br>    git config –global user.email ‘email’</p>
-<p>友情链接<br>    <a href="https://sinchie.com/posts/git-remark/" target="_blank" rel="noopener">https://sinchie.com/posts/git-remark/</a><br>比较的是历史区和工作区的差异（修改）<br>    git diff master<br>撤回内容<br>(如果修改了工作区的文件后发现改错了，可以用暂存区或者版本库里的文件替换掉工作区的文件)<br>用暂存区中的内容或者版本库中的内容覆盖掉工作区<br>    git checkout index.html<br>取消增加到暂存区的内容（添加时）<br>    git reset HEAD index.html<br>//显示目录的状体 有没有添加或者修改文件<br>    git status</p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/git/" rel="tag"># git</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/09/06/welcome-to-my-blog/" rel="next" title="welcome to kobe's blog">
-                <i class="fa fa-chevron-left"></i> welcome to kobe's blog
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/15/sudo的用法/" rel="prev" title="sudo的用法">
-                sudo的用法 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
       
     </div>
+
   </div>
+  
+  
+  
+
+  
 
 
           </div>
@@ -421,10 +306,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -661,10 +542,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 

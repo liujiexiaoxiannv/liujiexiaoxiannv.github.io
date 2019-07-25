@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[linux常用命令]]></title>
+    <url>%2F2019%2F07%2F25%2Flinux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[1 netstat -anp 显示系统端口使用情况 lsof -i :80 显示占用80端口的进程情况 uname -a 内核信息 cat /proc/interrupts 显示中断信息 netstat -ntlp //查看当前所有tcp端口 netstat -ntulp |grep 80 //查看所有80端口使用情况 -t (tcp) 仅显示tcp相关选项 -u (udp)仅显示udp相关选项 -n 拒绝显示别名，能显示数字的全部转化为数字 -l 仅列出在Listen(监听)的服务状态 -p 显示建立相关链接的程序名 netstat -an | grep 3306 //查看所有3306端口使用情况 telnet ip 80 方式测试远程主机80是否打开 2 查看文件内容 cat 可以加more 、less控制输出的内容的大小 cat a.text | more chown -R www:www timeapi 修改timeapi目录为www:www 递归子目录修改： chown -R tuxapp source/ 增加脚本可执行权限： chmod a+x myscript 文本替换 sed sed [options] &apos;command&apos; file(s) 首处替换 sed &apos;s/text/replace_text/&apos; file //替换每一行的第一处匹配的text 全局替换 sed &apos;s/text/replace_text/g&apos; file 移除空白行 sed &apos;/^$/d&apos; file sed &apos;s/book/books/&apos; file #替换文本中的字符串： sed &apos;s/book/books/g&apos; file sed &apos;/^$/d&apos; file #删除空白行 3 数据流处理awk]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[php常用命令]]></title>
+    <url>%2F2019%2F07%2F25%2Fphp%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[1、PHP运行指定文件 php -f test.php (-f 可省略) 2、命令行直接运行PHP代码 php -r “phpinfo();” 如果结果太长，还可以 php -r “phpinfo();” | less 分页展示 3、交互模式运行PHP php -a php &gt; echo (2+3); 5 control + c/z 或者 exit 退出交互模式 4、PHP脚本作为shell脚本运行 没有权限则切换到root用户 sudo su echo ‘#!/usr/bin/php\n&lt;?php var_dump($argv); ?&gt;’ &gt; phpscript #累计数据快照 1 0 * * * flock -xn /home/rong/crontab/UnderRepaymentTimeoutdone.lock -c &apos;/usr/bin/php /home/rong/www/time-order/webroot/command.php HistorySnapshot InsertHistoryData&apos; 5、其他常用命令 php -m 内置及Zend加载的模块 php -i 等价于 phpinfo() php -i | grep php.ini 查看php配置文件加载路径 php –ini 同上 php -v 查看php版本 php –version 同上 php –re 查看是否安装相应的扩展 如 php –re gd 6 php -S 这个内置的Web服务器主要用于本地开发使用，不可用于线上产品环境。 如果请求未指定执行哪个PHP文件，则默认执行目录内的index.php 或者 index.html。如果这两个文件都不存在，服务器会返回404错误。 当你在命令行启动这个Web Server时，如果指定了一个PHP文件，则这个文件会作为一个“路由”脚本，意味着每次请求都会先执行这个脚本。如果这个脚本返回 FALSE ，那么直接返回请求的文件（例如请求静态文件不作任何处理）。否则会把输出返回到浏览器。 php -S localhost:8000 服务于当前目录 php -S localhost:8000 -t foo/ 启动时指定根目录 php -S localhost:8000 router.php 使用路由（Router）脚本]]></content>
+      <categories>
+        <category>php</category>
+      </categories>
+      <tags>
+        <tag>php linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[devops-api notes]]></title>
     <url>%2F2019%2F07%2F22%2Fdevops-api-notes%2F</url>
     <content type="text"><![CDATA[token 暂不需要 关了 magicpush init //生成token //配置token magicpush token –create=xiaoayong –root-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9vdCIsInVwZGF0ZVRpbWUiOjE1MzA5NDIzNzJ9.-NUb3vqQQYs_83TliNDlXqHcuMlEWP8FDBj2GdDZgyE nohup magicpush server --mode=dev &amp; ##linux 请求头 MAGICPUSH-TOKEN 加上生成的 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoieGlhb2F5b25nIiwidXBkYXRlVGltZSI6MTUzMDk0MjQ0Nn0.KS1CrMPC5A4sKTMC1AcPoF-soSUmELa8FE5dgZAv1GY 一：http://127.0.0.1:7070/api/v1/sendmsg/dingding post 不要添加请求头 form-data发送一下内容 POST /api/v1/sendmsg/dingding msgType： text|markdown msg: 要发送的消息 title: 发送markdown消息时需要指定此参数，指定标题 url: 可以指定钉钉机器人的URL，这样就不用在conf/app.conf 配置钉钉机器人的URL 注意: 在发送markdown消息时，markdown的语法可以查看官方文档 二 http://127.0.0.1:7070/api/v1/sendmsg/weixin post form-data msgType text 消息类型,目前只支持文本消息 toTag 1 toUser XiaoAYong toParty 3 msg aa 我的脚本执行状况\n[脚本描述：测试]\n[脚本描述：测试]\n[脚本执行时间：20180629]\n 三 设置节假日和工作日 POST /api/v1/holiworkday 2018年 { “year”: “2018”, “holiday”: [ { “name”: “yuandan”, “zh_name”: “元旦”, “start_time”: “2018-01-01”, “end_time”: “2018-01-01” }, { “name”: “chunjie”, “zh_name”: “春节”, “start_time”: “2018-02-15”, “end_time”: “2018-02-21” }, { “name”: “qingming”, “zh_name”: “清明节”, “start_time”: “2018-04-05”, “end_time”: “2018-04-07” }, { “name”: “laodong”, “zh_name”: “劳动节”, “start_time”: “2018-04-29”, “end_time”: “2018-05-01” }, { “name”: “duanwu”, “zh_name”: “端午节”, “start_time”: “2018-06-16”, “end_time”: “2018-06-18” }, { “name”: “zhongqiu”, “zh_name”: “中秋节”, “start_time”: “2018-09-22”, “end_time”: “2018-09-24” }, { “name”: “guoqing”, “zh_name”: “国庆节”, “start_time”: “2018-10-01”, “end_time”: “2018-10-07” } ], “workday”: [ “2018-02-11”, “2018-02-24”, “2018-04-08”, “2018-04-28”, “2018-09-29”, “2018-09-30” ] } 2019年 { “year”: “2019”, “holiday”: [ { “name”: “yuandan”, “zh_name”: “元旦”, “start_time”: “2019-01-01”, “end_time”: “2019-01-01” }, { “name”: “chunjie”, “zh_name”: “春节”, “start_time”: “2019-02-04”, “end_time”: “2019-02-10” }, { “name”: “qingming”, “zh_name”: “清明节”, “start_time”: “2019-04-05”, “end_time”: “2019-04-07” }, { “name”: “laodong”, “zh_name”: “劳动节”, “start_time”: “2019-05-01”, “end_time”: “2019-05-04” }, { “name”: “duanwu”, “zh_name”: “端午节”, “start_time”: “2019-06-07”, “end_time”: “2019-06-09” }, { “name”: “zhongqiu”, “zh_name”: “中秋节”, “start_time”: “2019-09-13”, “end_time”: “2019-09-15” }, { “name”: “guoqing”, “zh_name”: “国庆节”, “start_time”: “2019-10-01”, “end_time”: “2019-10-07” } ], “workday”: [ “2018-02-02”, “2018-02-03”, “2018-04-28”, “2018-05-05”, “2018-09-29”, “2018-10-12” ] } 四 判断给定的日期是节假日工作日周末 GET /api/v1/holiworkday?date=2018-08-25 五 IP地址查询 GET /api/v1/queryip?ip=xxx.xxx.xxx.xxx http://127.0.0.1:7070/api/v1/queryip?ip=47.75.129.108 六 GET /api/v1/queryphone?phone=手机号 http://127.0.0.1:7070/api/v1/queryphone?phone=18612309765 七 windows操作指南 SET CGO_ENABLED=0 SET GOOS=windows go build -o devops-win-amd64.exe main.go start /b devops-win-amd64.exe server –mode=dev 八 方糖server 原始请求 https://sc.ftqq.com/$key.send?text=order_attachment脚本错误&amp;desp=正式服务器 http://127.0.0.1:7070/api/v1/weixin?text=order_attachment脚本错误&amp;desp=正式服务器]]></content>
