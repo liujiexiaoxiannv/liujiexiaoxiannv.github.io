@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[golang笔记]]></title>
+    <url>%2F2019%2F08%2F13%2Fgolang%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[常用知识点一 部署 windows下取别的名字 SET CGO_ENABLED=0 //这个不需要 SET GOOS=windows go build -o proxy-win-amd64.exe main.go start /b proxy-win-amd64.exe linux下取别的名字 SET CGO_ENABLED=0 //这个不需要 SET GOOS=linux go build -o proxy-linux-amd64 main.go nohup proxy-linux-amd64 server --mode=dev &amp; nohup proxy-linux-amd64 &amp; 二 debug goland 点击 debug go build main.go 查看console输出 查看debugger窗口输出 具体错误信息 三 golang 整形转字符串 strconv.Itoa(a) golang字符串分割成数组遍历 itemidString := &quot;sss,aaa,bb&quot; chrstr := strings.Split(itemidString, &quot;,&quot;) if len(chrstr) != 0 { for _, va := range chrstr { //va就是sss } }]]></content>
+      <categories>
+        <category>golang</category>
+      </categories>
+      <tags>
+        <tag>golang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hadoop/spark笔记]]></title>
+    <url>%2F2019%2F08%2F13%2Fhadoop-spark%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[这里是centos6.8上安装单机版spark 一. 安装JDK 二. 安装spark。 tar -zxvf spark-2.3.1-bin-hadoop2.7.tgz mv spark-2.3.1-bin-hadoop2.7 spark-2.3.1 vim /etc/profile export SPARK_HOME=/opt/spark-2.3.1 export PATH=$PATH:$SPARK_HOME/bin source /etc/profile cd /opt/spark-2.3.1/conf/ cp spark-env.sh.template spark-env.sh vim spark-env.sh export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.181-3.b13.el7_5.x86_64 #这里是你jdk的安装路径 export SPARK_HOME=/opt/spark-2.3.1 export SPARK_MASTER_IP=XXX.XX.XX.XXX #将这里的xxx改为自己的Linux的ip地址 source spark-env.sh cd /opt/spark-2.3.1/conf/ cp slaves.template slaves vim slaves 在文件的最后加上如下配置： localhost source slaves cd sbin/ ./start-all.sh ./start-master.sh ./start-slave.sh spark://node1:7077 或者 pyspark sparkShell 链接网址 https://blog.csdn.net/yzh_1346983557/article/details/81624708 //单机版部署安装 http://spark.apache.org/ //官网 http://spark.apache.org/docs/latest/sql-programming-guide.html //学习sql http://spark.apache.org/docs/latest/quick-start.html //这个好像是入门的]]></content>
+      <categories>
+        <category>spark</category>
+      </categories>
+      <tags>
+        <tag>hadoop spark</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[php面试题一]]></title>
     <url>%2F2019%2F07%2F25%2Fphp%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B8%80%2F</url>
     <content type="text"><![CDATA[1 写一个函数，获取一篇文章内容中的全部图片，并下载 $html = file_get_contents($url); preg_match_all(‘/&lt;img[^&gt;]src=”([^”])”[^&gt;]&gt;/i’,$html, $matchs); //2、什么是CSRF攻击？XSS攻击？如何防范？ 防范方式: CSRF TOKEN, 即提交表单时同时提交一段由服务端渲染表单时生成的token,通过校验token来防范csrf攻击 简单来说,XSS就是正常页面执行了用户或黑客提交的前端代码,比如你用了eval(‘这里执行了用户提交的代码’), 或者你的页面正常解析了用户提交的html代码,如用户提交的个人信息是:window.href=”恶意网站连接”, 而你不加过滤转义就入库,然后页面正常解析html代码,最终用户访问这个页面就会跳转到恶意网站 ,这就是XSS 防范方式: 过滤&amp;&amp;转义用户输入(如htmlentities、htmlspecialchars),永久不要信任客户端3 应用中我们经常会遇到在user表随机调取10条数据来展示的情况，简述你如何实现该功能。 select from user where rand() limit 10;4 MYSQL中主键与唯一索引的区别 主键是一种约束，唯一索引是一种索引，两者在本质上是不同的 主键创建后一定包含一个唯一性索引，唯一性索引并不一定就是主键 唯一性索引列允许空值，而主键列不允许为空值 主键列在创建时，已经默认为空值 + 唯一索引了 主键可以被其他表引用为外键，而唯一索引不能 一个表最多只能创建一个主键，但可以创建多个唯一索引 主键更适合那些不容易更改的唯一标识，如自动递增列、身份证号等 在 RBO 模式下，主键的执行计划优先级要高于唯一索引。 两者可以提高查询的速度5 http状态码及其含意 200 - 请求成功 301 - 资源（网页等）被永久转移到其它URL 404 - 请求的资源（网页等）不存在 500 - 内部服务器错误 300 种选择。请求的资源可包括多个位置，相应可返回一个资源特征与地址的列表用于用户终端（例如：浏览器）选择 302 临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI 400 客户端请求的语法错误，服务器无法理解 401 请求要求用户的身份认证 403 服务器理解请求客户端的请求，但是拒绝执行此请求 501 服务器不支持请求的功能，无法完成请求 502 充当网关或代理的服务器，从远端服务器接收到了一个无效的请求]]></content>
