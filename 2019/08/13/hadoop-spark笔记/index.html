@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="kobe&#39;s blog">
 <meta property="og:description" content="hadoop&amp;spark笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-19T12:09:39.350Z">
+<meta property="og:updated_time" content="2019-08-21T13:32:52.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop&#x2F;spark笔记">
 <meta name="twitter:description" content="hadoop&amp;spark笔记。">
@@ -422,7 +422,7 @@ cat -n * | grep &apos; &quot;nm&quot;:&quot;USER_START_APK&quot; &apos; | awk -F
 //也可以用jq
 cat * | jq &apos;. | {nm:.JINGANG_CLICK_EVERYTIME,name:.淘宝白菜}&apos; | wc -l 
 
-具体脚本代码----python
+具体脚本代码----python   注意python for循环缩进
 #!/usr/bin/env python
 # coding=utf-8
 from pyspark import SparkContext
@@ -485,7 +485,24 @@ https://blog.csdn.net/yzh_1346983557/article/details/81624708   //单机版部�
 http://spark.apache.org/      //官网
 http://spark.apache.org/docs/latest/sql-programming-guide.html  //学习sql
 http://spark.apache.org/docs/latest/quick-start.html   //这个好像是入门的
-</code></pre>
+
+https://www.cnblogs.com/xyf9575/p/7448613.html
+
+
+第二次在 15号机重装
+
+15 号docker安装pyspark
+</code></pre><p>已经安装了 java jdk  和 python2.7.5</p>
+<p>cd /data/server/pinedd<br>wget <a href="http://mirror.bit.edu.cn/apache/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz" target="_blank" rel="noopener">http://mirror.bit.edu.cn/apache/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz</a><br>wget <a href="https://downloads.lightbend.com/scala/2.13.0/scala-2.13.0.tgz" target="_blank" rel="noopener">https://downloads.lightbend.com/scala/2.13.0/scala-2.13.0.tgz</a></p>
+<p>tar zxvf spark-2.4.3-bin-hadoop2.7.tgz<br>mv spark-2.4.3-bin-hadoop2.7 spark-2.4.3<br>tar zxvf scala-2.13.0.tgz<br>vim /etc/profile</p>
+<p>加入<br>export SPARK_HOME=/data/server/pinedd/spark-2.4.3<br>export PATH=$SPARK_HOME/bin:$PATH<br>export PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip:$PYTHONPATH</p>
+<p>source /etc/profile<br>pyspark</p>
+<p>安装EPEL源：<br>yum install epel-release</p>
+<p>安装完EPEL源后，可以查看下jq包是否存在：<br>yum list jq</p>
+<p>安装jq：<br>yum install jq</p>
+<p>yum install -y sendemail   //shell 安装邮箱发送<br>curl -O <a href="https://bootstrap.pypa.io/get-pip.py" target="_blank" rel="noopener">https://bootstrap.pypa.io/get-pip.py</a>   //安装pip<br>python get-pip.py                       //很慢</p>
+<p>二 安装xlrd–读 xlwt–写<br>xlrd：是python从excel读数据的第三方控件；<br>xlwt：是python从excel写数据的第三方控件；<br>xlutils：是python使用xlrd、xlwt的工具箱。若安装不成功，可能原因是需要安装setuptools。<br>pip  install xlrd<br>pip  install xlwt<br>pip  install xlutils</p>
+
       
     </div>
     
