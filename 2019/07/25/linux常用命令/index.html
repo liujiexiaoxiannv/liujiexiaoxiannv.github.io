@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="kobe&#39;s blog">
 <meta property="og:description" content="linux常用命令笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-25T07:53:41.053Z">
+<meta property="og:updated_time" content="2019-08-26T08:11:16.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令">
 <meta name="twitter:description" content="linux常用命令笔记。">
@@ -393,6 +393,26 @@ awk &apos;{a[$1]++}END{for(i in a)print a[i],i|&quot;sort -k1 -nr|head -n10&quot
 消除重复行
 sort unsort.txt | uniq
 </code></pre><p>4   统计 wc<br>    wc -l fileA // 统计A文件行数<br>    wc -w file // 统计单词数<br>    wc -c file // 统计字符数</p>
+<p>5   hosts文件定时备份及开机恢复   加反斜杠 \cp 执行cp命令时不走alias：（注：推荐这个方法！）<br>    vim hostsbak.sh</p>
+<pre><code>#！/usr/bin/bash
+export LANG=&quot;en_US.UTF-8&quot;
+
+#
+\cp -rf  /etc/hosts /data/server/pinedd/work/hosts.bak    
+
+vim hostsload.sh
+#！/usr/bin/bash
+export LANG=&quot;en_US.UTF-8&quot;
+
+#
+\cp -rf /data/server/pinedd/work/hosts.bak /etc/hosts
+
+crontab 里
+10 01 * * * bash /data/server/pinedd/work/script/hostsbak.sh  1&gt;/data/server/pinedd/work/script/hostsbak.log 2&gt;&amp;1
+
+在/etc/rc.d/rc.local中加入以下语句：  开机自动执行此目录的脚本
+echo &quot;su - ricky -c &apos;/bin/bash /data/server/pinedd/work/script/hostsload.sh&apos;&quot; 1&gt;/data/server/pinedd/work/script/hostsload.log 2&gt;&amp;1
+</code></pre><p>6   登录远端服务器后<br>    sz aaa.txt  下载aaa.txt到本地<br>    rz 选择aaa.txt  上传本地aaa.txt到远端</p>
 
       
     </div>
