@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="kobe&#39;s blog">
 <meta property="og:description" content="hadoop&amp;spark笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-22T02:48:23.812Z">
+<meta property="og:updated_time" content="2019-08-26T12:47:30.043Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop&#x2F;spark笔记">
 <meta name="twitter:description" content="hadoop&amp;spark笔记。">
@@ -507,7 +507,31 @@ https://www.cnblogs.com/xyf9575/p/7448613.html
 <p>#export SPARK_EXECUTOR_MEMORY=512M<br>export SPARK_WORKER_MEMORY=2G<br>export SPARK_MASTER_PORT=7077</p>
 <p>vim /etc/hosts<br>1.1.1.39 pinedd-001</p>
 <p>cp  slaves.template slaves<br>vim  slaves<br>在文件的最后加上如下配置：<br>localhost</p>
+<p>三 windows7使用Intellij IDEA编辑器运行pyspark</p>
+<pre><code>1) new project 选择Python
+2) 在Project SDK中 NEW...选择运行环境 Add Python Interpreter（增加python 编译）
+    这四个都是可以跑的
+    1 Virtualenv Environment   Python的虚拟环境可以使一个Python程序拥有独立的库library和解释器interpreter，而不用与其他Python程序共享统一个library和interpreter。虚拟环境的好处是避免了不同Python程序间的互相影响.例如程序A需要某个库的1.0版本，而程序B需要同样这个库的2.0版本，如果程序B执行则A就不能执行了。见formatlog里的venv
+    2 Conda Environment
+    3 System Interpreter  system interpreter表示本地的解释器
+    4 Pipenv Environment   pip 是 Python 最常用的包管理器，该工具提供了对Python 包的查找、下载、安装、卸载的功能。它能自动处理依赖 
 
+    如果说venv是虚拟环境管理器，pip是包管理器，那么conda则是两者的结合。遗憾的是conda的包管理器做的一般，大多数时候还是使用pip安装包。pip只能安装Python的包，conda可以安装一些工具软件，即使这些软件不是基于Python开发的。conda虚拟环境是独立于操作系统解释器环境的，即无论操作系统解释器什么版本（哪怕2.7），我也可以指定虚拟环境python版本为3.6（见文章开头所说原博客），而venv是依赖主环境的。对于科学计算和大数据领域的人，conda是环境自动集成了numpy这样的主流科学计算包的，venv每个包都要自行下载。conda有图形化环境管理器，venv没有。（虽然开发人员几乎不用图形界面conda）。之前安装的anaconda3就是很强大。
+
+    有conda就是一个包管理工具和安装工具，他就是要做比pip更多的事情；在python-site-packages之外管理python 库依赖关系。 而且conda同样也像virtualenv一样创建一个虚拟环境。conda可以让你同时管理安装处理你有关python的任务和跟python无关的任务conda使用了一个新的包格式，你不能交替使用pip 和conda。因为pip不能安装和解析conda的包格式。你可以使用两个工具 但是他们是不能交互的。Anaconda是一个包含180+的科学包及其依赖项的发行版本。其包含的科学包包括：conda, numpy, scipy, ipython notebook等。conda是包及其依赖项和环境的管理工具。适用语言：Python, R, Ruby, Lua, Scala, Java, JavaScript, C/C++, FORTRAN。适用平台：Windows, macOS, Linux
+
+    pip是用于安装和管理软件包的包管理器。Python 3.4及后续版本：默认安装，命令为pip3。virtualenv：用于创建一个独立的Python环境的工具。
+
+    conda结合了pip和virtualenv的功能。
+
+    https://blog.csdn.net/sinat_28442665/article/details/86292354
+    https://blog.csdn.net/C_tommy/article/details/86706458
+
+3）这里我选择的则是系统环境也就是自己装的python3.7.4。Interpreter（解释器）选择的是D:\Python37\python.exe
+    Project name 输入formatlog 对应路径D:\GoWorkPath\src\formatlog  finish
+
+4) 进入项目目录-&gt; sshscript  打开下面的test.py 遇到 from pyspark import SparkContext 有红点 直接点击安装即可。然后选择文件debug 文件即可
+</code></pre>
       
     </div>
     
