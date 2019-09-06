@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="kobe&#39;s blog">
 <meta property="og:description" content="hadoop&amp;spark笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-26T12:47:30.043Z">
+<meta property="og:updated_time" content="2019-08-28T15:58:14.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop&#x2F;spark笔记">
 <meta name="twitter:description" content="hadoop&amp;spark笔记。">
@@ -531,6 +531,25 @@ https://www.cnblogs.com/xyf9575/p/7448613.html
     Project name 输入formatlog 对应路径D:\GoWorkPath\src\formatlog  finish
 
 4) 进入项目目录-&gt; sshscript  打开下面的test.py 遇到 from pyspark import SparkContext 有红点 直接点击安装即可。然后选择文件debug 文件即可
+
+5) 看程序用到的包 和 程序执行文件路径 ---大致可以确定是IDEA中python SDK配置的路径有误，依次点击：File–&gt;Project Structure–&gt;Platform Settings–&gt;SDKs–&gt;Python 3.7，发现Classpath下是空的，问题找到。File-&gt;Invalidate Caches/Restart;
+</code></pre><p> 四  mysql相关操作<br>    pyspark的 Mysql写入<br>    一.需要提交spark时候，加入mysql-connect jar<br>    bin/spark-submit –master yarn-client –num-executors 5 –executor-cores 20 –executor-memory 20g –jars /usr/hdp/2.4.2.0-258/sqoop/lib/mysql-connector-java.jar /opt/spark-2.1.0-bin-hadoop2.7/dig.py   </p>
+<pre><code>备注下，执行的python程序次序不能错。不然居然找不到mysql驱动。
+
+二.写入的python程序如下：
+
+df.write.jdbc(url=&quot;jdbc:mysql://10.0.0.03:3306/test&quot;
+             &quot;?user=test&amp;password=test123&quot;,
+          mode=&quot;append&quot;,
+          table=&quot;test&quot;,
+          properties={&quot;driver&quot;: &apos;com.mysql.jdbc.Driver&apos;})
+备注下:
+1.df是要写入的数据集，类似于R中的dataframe
+2.mode是表明是否追加数据，否则创建新表
+3.table指定插入的mysql表
+4.url是mysql的链接参数。          
+
+bin/spark-submit --master yarn-client --num-executors 5 --executor-cores 20 --executor-memory 20g --jars /usr/hdp/2.4.2.0-258/sqoop/lib/mysql-connector-java.jar /opt/spark-2.1.0-bin-hadoop2.7/dig.py
 </code></pre>
       
     </div>
@@ -645,7 +664,7 @@ https://www.cnblogs.com/xyf9575/p/7448613.html
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -656,7 +675,7 @@ https://www.cnblogs.com/xyf9575/p/7448613.html
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -667,7 +686,7 @@ https://www.cnblogs.com/xyf9575/p/7448613.html
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

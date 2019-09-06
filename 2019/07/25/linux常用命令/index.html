@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="kobe&#39;s blog">
 <meta property="og:description" content="linux常用命令笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-26T08:11:16.273Z">
+<meta property="og:updated_time" content="2019-09-06T03:01:20.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令">
 <meta name="twitter:description" content="linux常用命令笔记。">
@@ -384,6 +384,21 @@ sed &apos;s/book/books/&apos; file #替换文本中的字符串：
 sed &apos;s/book/books/g&apos; file
 sed &apos;/^$/d&apos; file #删除空白行
 
+sed -i “s/oldstring/newstring/g” grep oldstring -rl path
+比如，要将目录/modules下面所有文件中的zhangsan都修改成lisi，这样做：
+sed -i “s/zhangsan/lisi/g” grep zhangsan -rl /modules
+
+sed -i “s/6/sk/g” grep 6 -rl /home/work/test/*.sh
+
+# 注意这里的 &quot; &amp; &quot; 符号，如果没有 “&amp;”，就会直接将匹配到的字符串替换掉
+sed &apos;s/^/添加的头部&amp;/g&apos; 　　　　 #在所有行首添加
+sed &apos;s/$/&amp;添加的尾部/g&apos; 　　　　 #在所有行末添加
+sed &apos;2s/原字符串/替换字符串/g&apos;　 #替换第2行
+sed &apos;$s/原字符串/替换字符串/g&apos;   #替换最后一行
+sed &apos;2,5s/原字符串/替换字符串/g&apos; #替换2到5行
+sed &apos;2,$s/原字符串/替换字符串/g&apos; #替换2到最后一行
+sed &apos;s/原字符串/替换字符串/2g&apos;   #替换2到最后一行
+
 tail -n 24 可以指定显示行数
 查看文件的前多少行 head -n100 filename
 </code></pre><p>3   数据流处理awk</p>
@@ -413,7 +428,28 @@ crontab 里
 在/etc/rc.d/rc.local中加入以下语句：  开机自动执行此目录的脚本
 echo &quot;su - ricky -c &apos;/bin/bash /data/server/pinedd/work/script/hostsload.sh&apos;&quot; 1&gt;/data/server/pinedd/work/script/hostsload.log 2&gt;&amp;1
 </code></pre><p>6   登录远端服务器后<br>    sz aaa.txt  下载aaa.txt到本地<br>    rz 选择aaa.txt  上传本地aaa.txt到远端</p>
+<p>7   screen命令<br>    screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]</p>
+<pre><code>-A 　将所有的视窗都调整为目前终端机的大小。
+-d &lt;作业名称&gt; 　将指定的screen作业离线。
+-h &lt;行数&gt; 　指定视窗的缓冲区行数。
+-m 　即使目前已在作业中的screen作业，仍强制建立新的screen作业。
+-r &lt;作业名称&gt; 　恢复离线的screen作业。
+-R 　先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业。
+-s 　指定建立新视窗时，所要执行的shell。
+-S &lt;作业名称&gt; 　指定screen作业的名称。
+-v 　显示版本信息。
+-x 　恢复之前离线的screen作业。
+-ls或--list 　显示目前所有的screen作业。
+-wipe 　检查目前所有的screen作业，并删除已经无法使用的screen作业。
 
+screen -S yourname -&gt; 新建一个叫yourname的session
+screen -ls -&gt; 列出当前所有的session
+screen -r yourname -&gt; 回到yourname这个session
+screen -d yourname -&gt; 远程detach某个session
+screen -d -r yourname -&gt; 结束当前session并回到yourname这个session
+
+Ctrl+D 最小化，后台运行
+</code></pre>
       
     </div>
     
@@ -527,7 +563,7 @@ echo &quot;su - ricky -c &apos;/bin/bash /data/server/pinedd/work/script/hostslo
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -538,7 +574,7 @@ echo &quot;su - ricky -c &apos;/bin/bash /data/server/pinedd/work/script/hostslo
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -549,7 +585,7 @@ echo &quot;su - ricky -c &apos;/bin/bash /data/server/pinedd/work/script/hostslo
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
