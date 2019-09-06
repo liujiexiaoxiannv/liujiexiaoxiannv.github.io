@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="kobe&#39;s blog">
 <meta property="og:description" content="linux常用命令笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-06T03:01:20.417Z">
+<meta property="og:updated_time" content="2019-09-06T03:55:48.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令">
 <meta name="twitter:description" content="linux常用命令笔记。">
@@ -449,6 +449,18 @@ screen -d yourname -&gt; 远程detach某个session
 screen -d -r yourname -&gt; 结束当前session并回到yourname这个session
 
 Ctrl+D 最小化，后台运行
+
+
+用screen -wipe命令清除该会话
+Attached为当前有会话连接，Detached为会话断开
+
+screen -X -S 374744 quit  结束某个会话 root用户下exit就可以结束某个会话
+
+常用的
+在root用户下
+screen -S yourname -&gt; 新建一个叫yourname的session
+screen -ls -&gt; 列出当前所有的session
+ctrl+a  然后 d挂起某个会话
 </code></pre>
       
     </div>
