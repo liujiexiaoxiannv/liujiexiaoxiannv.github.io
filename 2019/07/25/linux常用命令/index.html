@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="kobe&#39;s blog">
 <meta property="og:description" content="linux常用命令笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-06T03:55:48.587Z">
+<meta property="og:updated_time" content="2019-09-15T09:51:10.719Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令">
 <meta name="twitter:description" content="linux常用命令笔记。">
@@ -366,7 +366,8 @@
 
       
         <p>1   netstat -anp 显示系统端口使用情况<br>    lsof -i :80 显示占用80端口的进程情况<br>    uname -a 内核信息<br>    cat /proc/interrupts 显示中断信息<br>    netstat -ntlp   //查看当前所有tcp端口<br>    netstat -ntulp |grep 80   //查看所有80端口使用情况<br>        -t (tcp) 仅显示tcp相关选项<br>        -u (udp)仅显示udp相关选项<br>        -n 拒绝显示别名，能显示数字的全部转化为数字<br>        -l 仅列出在Listen(监听)的服务状态<br>        -p 显示建立相关链接的程序名<br>    netstat -an | grep 3306   //查看所有3306端口使用情况<br>    telnet ip  80   方式测试远程主机80是否打开</p>
-<p>2   查看文件内容 cat 可以加more 、less控制输出的内容的大小<br>    cat a.text | more</p>
+<pre><code>netstat -nap | grep [pid]   查看某个进程占用的端口
+</code></pre><p>2   查看文件内容 cat 可以加more 、less控制输出的内容的大小<br>    cat a.text | more</p>
 <pre><code>chown -R www:www timeapi   修改timeapi目录为www:www
 递归子目录修改： chown -R tuxapp source/
 增加脚本可执行权限： chmod a+x myscript
@@ -461,6 +462,39 @@ screen -X -S 374744 quit  结束某个会话 root用户下exit就可以结束某
 screen -S yourname -&gt; 新建一个叫yourname的session
 screen -ls -&gt; 列出当前所有的session
 ctrl+a  然后 d挂起某个会话
+</code></pre><p>8   grep命令详解  <a href="https://www.jianshu.com/p/4ec50fdaf388" target="_blank" rel="noopener">https://www.jianshu.com/p/4ec50fdaf388</a><br>    grep or 操作符<br>    1  使用 |<br>    grep ‘pattern1|pattern2’ filename<br>    grep ‘Tech|Sales’ employee.txt<br>    2  使用选项 -E<br>    grep -E ‘pattern1|pattern2’ filename<br>    grep -E ‘Tech|Sales’ employee.txt<br>    3  使用 egrep<br>    egrep ‘pattern1|pattern2’ filename<br>    egrep ‘Tech|Sales’ employee.txt<br>    4  使用选项 -e<br>    grep -e pattern1 -e pattern2 filename<br>    grep -e Tech -e Sales employee.txt  </p>
+<pre><code>grep and 操作
+1  使用 -E &apos;pattern1.*pattern2&apos;
+grep -E &apos;pattern1.*pattern2&apos; filename  
+grep -E &apos;pattern1.*pattern2|pattern2.*pattern1&apos; filename 
+两个pattern的顺序不是固定的，可以是乱序的
+grep -E &apos;Manager.*Sales|Sales.*Manager&apos; employee.txt  
+2  使用多个grep命令
+grep -E &apos;pattern1&apos; filename | grep -E &apos;pattern2&apos;  
+grep Manager employee.txt | grep Sales  
+
+grep not 操作
+1  使用选项 grep -v
+grep -v &apos;pattern1&apos; filename
+2  可以将NOT操作与其他操作联合起来，以此实现更强大的功能 组合。
+ egrep &apos;Manager|Developer&apos; employee.txt | grep -v Sales  
+</code></pre><p>9   vim命令  <a href="https://www.cnblogs.com/liu0799/p/10239791.html" target="_blank" rel="noopener">https://www.cnblogs.com/liu0799/p/10239791.html</a><br>    Esc  –退出编辑模式，进入命令模式<br>    x    –命令模式下，相当于我们平时用的删除键。<br>    Delete  –命令模式下，跟我们平时用的del键是一样的<br>    dd     –删除该光标所在的行，将整行都给删除掉。</p>
+<pre><code>u     撤消最后一次修改
+U     撤消当前行的所有修改
+
+y0   复制光标所在行中的首字母到光标所在的字母之间的数据 (不包含光标上的字母）
+y$   复制光标所在行中的光标所在字母到行尾之间的数据（包含光标上的字母）
+y1G   复制第1行到光标所在行的所有数据
+yG    复制光标所在行到最后一行所有的数据
+
+0 (零按键)  移动到当前行的行首。
+$      移动到当前行的末尾。
+G      移动到文件末尾。
+H      将光标移动到屏幕的顶行
+nH     将光标移动到屏幕顶行下的第 n 行
+
+n      在同一方向重复查找
+N      在相反方向重复查找
 </code></pre>
       
     </div>
