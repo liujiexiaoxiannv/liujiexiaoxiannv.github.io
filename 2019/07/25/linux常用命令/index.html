@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="kobe&#39;s blog">
 <meta property="og:description" content="linux常用命令笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-16T09:07:00.530Z">
+<meta property="og:updated_time" content="2019-09-16T10:48:52.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令">
 <meta name="twitter:description" content="linux常用命令笔记。">
@@ -584,6 +584,12 @@ cat * | awk -F , &apos;{print $5}&apos; | awk -F : &apos;{print $2}&apos; | sort
 cat 1.txt | jq .nm | sort | uniq -c 
 直接jq取.nm的值
 
+cat * | jq -r &apos;.nm&apos; | grep BANGO_WAKE_UP_SQG_HELPER |wc -l  //统计nm为BANGO_WAKE_UP_SQG_HELPER的个数
+
+cat * | jq -r -c &apos;. | {nm:.nm,p:.p}&apos; | grep SQG_TODAY_FIRST_OPEN | grep &apos;&quot;p&quot;:&quot;2&quot;&apos;  //满足nm=SQG_TODAY_FIRST_OPEN且p=2的
+
+
+
 
 cat * | awk -F &apos;(&quot;nm&quot;:&quot;|&quot;,&quot;p&quot;)&apos; &apos;{print $2}&apos; | sort | uniq -d   -d或--repeated 仅显示重复出现的行
 -u或--unique 仅显示出现一次的行
@@ -594,7 +600,7 @@ grep &apos;17:[0-9][0-9]:&apos; awk.sh | awk -F, &apos;{if(int($19)&gt;=0)print 
 
 cat * | awk -F &apos;(&quot;p&quot;:&quot;|&quot;,&quot;tm&quot;)&apos; &apos;{sum += $2} END {print sum}&apos;  
 统计p的和
-</code></pre><p>11  jq命令   <a href="https://www.jianshu.com/p/3522fe70de19" target="_blank" rel="noopener">https://www.jianshu.com/p/3522fe70de19</a><br>    安装EPEL源：<br>    yum install epel-release<br>    安装<br>    yum install jq<br>    yum install -y jq</p>
+</code></pre><p>11  jq命令   <a href="https://www.jianshu.com/p/3522fe70de19" target="_blank" rel="noopener">https://www.jianshu.com/p/3522fe70de19</a>  <a href="https://www.linuxidc.com/Linux/2017-10/148037.htm" target="_blank" rel="noopener">https://www.linuxidc.com/Linux/2017-10/148037.htm</a>  <a href="https://www.jianshu.com/p/851015d1b186" target="_blank" rel="noopener">https://www.jianshu.com/p/851015d1b186</a><br>    安装EPEL源：<br>    yum install epel-release<br>    安装<br>    yum install jq<br>    yum install -y jq</p>
 <pre><code>cat * | jq &apos;. | {nm:.JINGANG_CLICK_EVERYTIME,name:.淘宝白菜}&apos; | wc -l
 cat * | jq &apos;.[0] | {nm:.name,city:.address.city}&apos;
 
@@ -635,6 +641,23 @@ sort -t &apos;,&apos;  -k 1,1 -u
 
 最简单的jq程序是表达式&quot;.&quot;，它不改变输入，但可以将其优美地输出，便于阅读和理解。cat json.txt | jq &apos;.&apos;
 输出列表中的第一个元素，可以使用[index]：  cat json.txt | jq &apos;.[0]&apos;
+
+curl -X http://localhost:8080/a/b | jq .
+
+Some of the options include:
+ -c     compact instead of pretty-printed output;
+ -n     use `null` as the single input value;
+ -e     set the exit status code based on the output;
+ -s     read (slurp) all inputs into an array; apply filter to it;
+ -r     output raw strings, not JSON texts;
+ -R     read raw strings, not JSON texts;                     //输出SQG_TODAY_FIRST_OPEN  没有双引号
+ -C     colorize JSON;
+ -M     monochrome (don&apos;t colorize JSON);
+ -S     sort keys of objects on output;
+ --tab  use tabs for indentation;
+ --arg a v  set variable $a to value &lt;v&gt;;
+ --argjson a v  set variable $a to JSON value &lt;v&gt;;
+ --slurpfile a f    set variable $a to an array of JSON texts read from &lt;f&gt;;
 </code></pre>
       
     </div>
