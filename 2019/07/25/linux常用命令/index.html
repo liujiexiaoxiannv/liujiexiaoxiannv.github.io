@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="kobe&#39;s blog">
 <meta property="og:description" content="linux常用命令笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-15T09:51:10.719Z">
+<meta property="og:updated_time" content="2019-09-16T09:07:00.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令">
 <meta name="twitter:description" content="linux常用命令笔记。">
@@ -495,6 +495,146 @@ nH     将光标移动到屏幕顶行下的第 n 行
 
 n      在同一方向重复查找
 N      在相反方向重复查找
+</code></pre><p>10  awk命令    <a href="https://www.cnblogs.com/wangbaihan/p/9262296.html" target="_blank" rel="noopener">https://www.cnblogs.com/wangbaihan/p/9262296.html</a><br>    awk 是行处理器，优点是处理庞大文件时不会出现内存溢出或处理缓慢的问题，通常用来格式化文本信息。awk依次对每一行进行处理，然后输出。<br>    命令形式 awk [-F|-f|-v] ‘BEGIN{} //{command1; command2} END{}’ file<br>    [-F|-f|-v] 大参数，-F指定分隔符，-f调用脚本，-v定义变量 var=value<br>    ’ ’ 引用代码块<br>    BEGIN 初始化代码块，在对每一行进行处理之前，初始化代码，主要是引用全局变量，设置FS分隔符<br>    // 匹配代码块，可以使字符串或正则表达式<br>    {} 命令代码块，包含一条或多条命令<br>    ;多条命令使用分号分隔<br>    END 结尾代码块，对每一行进行处理后再执行的代码块，主要进行最终计算或输出<br>    由于篇幅限制，可自行查找更详细的信息。这里awk命令的作用是从文件中每一行取出我们需要的字符串</p>
+<pre><code>sort 命令 
+sort将文件的每一行作为一个单位，相互比较，比较原则是从首字符向后，依次按ASCII码值进行比较，最后将他们按升序输出。 
+  -b：忽略每行前面开始出的空格字符； 
+  -c：检查文件是否已经按照顺序排序； 
+  -d：排序时，处理英文字母、数字及空格字符外，忽略其他的字符； 
+  -f：排序时，将小写字母视为大写字母； 
+  -i：排序时，除了040至176之间的ASCII字符外，忽略其他的字符； 
+  -m：将几个排序号的文件进行合并； 
+  -M：将前面3个字母依照月份的缩写进行排序； 
+  -n：依照数值的大小排序； 
+  -o&lt;输出文件&gt;：将排序后的结果存入制定的文件； 
+  -r：以相反的顺序来排序； 
+  -t&lt;分隔字符&gt;：指定排序时所用的栏位分隔字符；
+
+uniq 命令 
+uniq 命令用于报告或忽略文件中的重复行，一般与sort命令结合使用 
+   -c或——count：在每列旁边显示该行重复出现的次数； 
+  -d或–repeated：仅显示重复出现的行列； 
+  -f&lt;栏位&gt;或–skip-fields=&lt;栏位&gt;：忽略比较指定的栏位； 
+  -s&lt;字符位置&gt;或–skip-chars=&lt;字符位置&gt;：忽略比较指定的字符； 
+  -u或——unique：仅显示出一次的行列； 
+  -w&lt;字符位置&gt;或–check-chars=&lt;字符位置&gt;：指定要比较的字符。
+
+&gt; 命令 
+&gt; 是定向输出到文件,如果文件不存在，就创建文件。如果文件存在，就将其清空 
+另外 &gt;&gt;是将输出内容追加到目标文件中。其他同&gt;  
+
+现有日志文件11.txt内容  需要分组统计nm的量
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;111.85.164.152&quot;,&quot;m1&quot;:&quot;5232a3e61b8a6da97718c841919fbd21&quot;,&quot;mo&quot;:&quot;GIONEE GN5007&quot;,&quot;nm&quot;:&quot;SQG_TODAY_FIRST_OPEN&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;106.9.163.80&quot;,&quot;m1&quot;:&quot;d181e463d4519d6ef87aa94975dfc6a2&quot;,&quot;mo&quot;:&quot;GIONEE M7&quot;,&quot;nm&quot;:&quot;SQG_TODAY_FIRST_OPEN&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;113.6.185.218&quot;,&quot;m1&quot;:&quot;f73a98d4af94f14be333a30784e28a58&quot;,&quot;mo&quot;:&quot;GN5005&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;171.114.50.161&quot;,&quot;m1&quot;:&quot;41888e7e069a263415d321eb056169dc&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;SQG_TODAY_FIRST_OPEN&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;182.38.202.42&quot;,&quot;m1&quot;:&quot;92e697ffc4e2998d2b4a3aa6f80528c1&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;221.9.36.175&quot;,&quot;m1&quot;:&quot;7c9fb26543c69b2bedadeecccc8c6e3b&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;123.114.54.186&quot;,&quot;m1&quot;:&quot;43fc6f1d584e39bfd0b88b0b5af94028&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;118.73.228.148&quot;,&quot;m1&quot;:&quot;675943c53e5161097deb893e4c0b2b4a&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;222.172.67.17&quot;,&quot;m1&quot;:&quot;cb5925d867519e51131b04bc31d200a0&quot;,&quot;mo&quot;:&quot;GN5005&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;117.136.27.119&quot;,&quot;m1&quot;:&quot;114c0971ad875d6a4eeb7a78987f8d78&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;117.176.48.89&quot;,&quot;m1&quot;:&quot;efe72f034a116f1f15586c5e2477bcd0&quot;,&quot;mo&quot;:&quot;GN5005&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;101.24.72.57&quot;,&quot;m1&quot;:&quot;2c699cdc8fd50ecfd2806c9e090dba2f&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;111.165.222.53&quot;,&quot;m1&quot;:&quot;a92efbf69cae64d4a0dabd8eabf6a4fd&quot;,&quot;mo&quot;:&quot;GN5005&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;223.104.103.61&quot;,&quot;m1&quot;:&quot;e7db451656d211905173ab398d6bf43f&quot;,&quot;mo&quot;:&quot;GN5005&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;122.159.4.47&quot;,&quot;m1&quot;:&quot;f3385b1d7540069425009d6edff35efc&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;183.228.178.246&quot;,&quot;m1&quot;:&quot;8abbe19f6a55fe90dafb772e62510f65&quot;,&quot;mo&quot;:&quot;F100S&quot;,&quot;nm&quot;:&quot;GIONEE_OPEN_BANGO&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;122.157.162.81&quot;,&quot;m1&quot;:&quot;cf5d7012e3f4818ae9d81bf1993d7e05&quot;,&quot;mo&quot;:&quot;GN5005&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;112.12.207.65&quot;,&quot;m1&quot;:&quot;030bcaa94e2c18f481c35ec54a814b3e&quot;,&quot;mo&quot;:&quot;GIONEE M7&quot;,&quot;nm&quot;:&quot;SQG_TODAY_FIRST_OPEN&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;113.249.244.199&quot;,&quot;m1&quot;:&quot;f7e99c1d80b05af1e3050d6551850fa3&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;117.136.56.70&quot;,&quot;m1&quot;:&quot;e94a443afa90cbb85eb6414ce4d62fe2&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+
+从每一行取出我们需要的字符串
+cat 11.txt | awk -F &apos;(&quot;nm&quot;:&quot;|&quot;,&quot;p&quot;)&apos; &apos;{print $2}&apos;
+
+输出
+SQG_TODAY_FIRST_OPEN
+SQG_TODAY_FIRST_OPEN
+BANGO_WAKE_UP_SQG_HELPER
+SQG_TODAY_FIRST_OPEN
+BANGO_WAKE_UP_SQG_HELPER
+BANGO_WAKE_UP_SQG_HELPER
+BANGO_WAKE_UP_SQG_HELPER
+
+awk 命令中 -F 指定每一行的分隔符 在这里 ‘(txt=|&amp;client)’是分隔符，它是一个正则表达式。意义是，用’txt=’或’&amp;client’ 作为分隔符。
+在这里会被分成1,2,3三个部分 第二部分我们需要。而’{print $2}’的意思是将每行得到的第二个值打印出来，$0代表获取的所有值 
+
+对行进行排序 
+先排序是因为去重与统计的 ‘uniq’命令只能处理相邻行
+cat 11.txt | awk -F &apos;(&quot;nm&quot;:&quot;|&quot;,&quot;p&quot;)&apos; &apos;{print $2}&apos; | sort
+
+统计数量与去重
+cat 11.txt | awk -F &apos;(&quot;nm&quot;:&quot;|&quot;,&quot;p&quot;)&apos; &apos;{print $2}&apos; | sort | uniq -c
+
+uniq -c 中的-c 代表在每列旁边显示该行重复出现的次数 
+
+按重复次数排序  sort 的 -n：依照数值的大小排序；-r 按照相反顺序排列
+cat 11.txt | awk -F &apos;(&quot;nm&quot;:&quot;|&quot;,&quot;p&quot;)&apos; &apos;{print $2}&apos; | sort | uniq -c | sort -nr
+
+将结果输出到文件中
+cat 11.txt | awk -F &apos;(&quot;nm&quot;:&quot;|&quot;,&quot;p&quot;)&apos; &apos;{print $2}&apos; | sort | uniq -c | sort -nr &gt; count.txt
+
+第二种方法
+cat * | awk -F , &apos;{print $5}&apos; | awk -F : &apos;{print $2}&apos; | sort | uniq -c | sort -nr
+
+先逗号分割，得到的结果 再：分割
+
+第三种方法jq
+cat 1.txt | jq .nm | sort | uniq -c 
+直接jq取.nm的值
+
+
+cat * | awk -F &apos;(&quot;nm&quot;:&quot;|&quot;,&quot;p&quot;)&apos; &apos;{print $2}&apos; | sort | uniq -d   -d或--repeated 仅显示重复出现的行
+-u或--unique 仅显示出现一次的行
+
+扩展
+grep &apos;17:[0-9][0-9]:&apos; awk.sh | awk -F, &apos;{if(int($19)&gt;=0)print $10}&apos; | sort | uniq -c | sort -n
+这句-F, 表示根据逗号分割  分割后第19行大于0  -n表示正序排列
+
+cat * | awk -F &apos;(&quot;p&quot;:&quot;|&quot;,&quot;tm&quot;)&apos; &apos;{sum += $2} END {print sum}&apos;  
+统计p的和
+</code></pre><p>11  jq命令   <a href="https://www.jianshu.com/p/3522fe70de19" target="_blank" rel="noopener">https://www.jianshu.com/p/3522fe70de19</a><br>    安装EPEL源：<br>    yum install epel-release<br>    安装<br>    yum install jq<br>    yum install -y jq</p>
+<pre><code>cat * | jq &apos;. | {nm:.JINGANG_CLICK_EVERYTIME,name:.淘宝白菜}&apos; | wc -l
+cat * | jq &apos;.[0] | {nm:.name,city:.address.city}&apos;
+
+jq支持使用map()或者map_values()遍历列表，或者对象的值。
+例如 echo &apos;{&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3}&apos; | jq &apos;map_values(1 + .)&apos;
+    echo &apos;[1,2,3]&apos; | jq &apos;map(1 + .)&apos;
+
+删除某个key    jq &apos;del(filter)&apos; json.data  
+key 是用来获取JSON中的 key 元素的：  cat json_raw.txt | jq &apos;keys&apos; 
+检查某个key是否存在  cat json_raw.txt | jq &apos;has(&quot;name&quot;)&apos; 
+
+合并  jq -n &apos;{a:&quot;test&quot;} + {b:2}&apos;
+删除 cat test.json |jq &apos;del(.b)&apos;
+更新 cat test.json |jq &apos;.b=&quot;testb&quot;&apos;
+查询  cat test.json |jq &apos;. + {d:4}&apos; |jq &apos;.d={dd:5}&apos; |jq .d.dd   //{ &quot;a&quot;: &quot;test&quot;, &quot;b&quot;: 2, &quot;c&quot;: &quot;testc&quot;, &quot;d&quot;: { &quot;dd&quot;: 5 } }
+查看数据类型    echo &quot;{}&quot; |jq -r type    echo &apos;[0, false, [], {}, null, &quot;hello&quot;]&apos; |jq &apos;map(type)&apos;
+查询数组中的值   echo [1,2,3] |jq .[1]
+查询数组长度   echo [1,2,3,9] |jq &apos;.|length&apos;
+数组相加      echo [1,2,3] |jq &apos;. + [4,5,6]&apos;
+
+高级查询    echo [1,2,3] | jq &apos;map(select(. &gt;= 2))&apos;
+            echo [1,2,3] | jq &apos;map(select(. != 2))&apos;
+
+类型转换      echo &apos;[&quot;a&quot;,&quot;b,c,d&quot;,&quot;e&quot;]&apos; |jq &apos;join(&quot;,&quot;)&apos;       jq -R &apos;split(&quot;,&quot;)|{&quot;name&quot;:.[0],&quot;age&quot;:.[1],&quot;sex&quot;:.[2]}&apos; ./test.json 
+
+计算元素长度，对于对象，length表示对象里的元素个数，对于string，length表示string字符数，对于列表，表示列表元素个数
+jq &apos;.age | length&apos;  1.txt
+
+sort -t &apos;,&apos;  -k 1,1 -u 
+其中 -t 指定列之间的分隔符， -k 指定从第几列到第几列作为去重标准
+
+-c或--count 在每列旁边显示该行重复出现的次数
+-d或--repeated 仅显示重复出现的行
+-f&lt;栏位&gt;或--skip-fields=&lt;栏位&gt; 比较时跳过前n列，从n+1列开始比较
+-s&lt;字符位置&gt;或--skip-chars=&lt;字符位置&gt;比较时跳过前n个字符，从n+1个字符开始比较
+-u或--unique 仅显示出现一次的行
+-w&lt;字符位置&gt;或--check-chars=&lt;字符位置&gt;对每行第n个字符以后的内容不作对照
+
+最简单的jq程序是表达式&quot;.&quot;，它不改变输入，但可以将其优美地输出，便于阅读和理解。cat json.txt | jq &apos;.&apos;
+输出列表中的第一个元素，可以使用[index]：  cat json.txt | jq &apos;.[0]&apos;
 </code></pre>
       
     </div>
