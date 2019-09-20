@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="kobe&#39;s blog">
 <meta property="og:description" content="linux常用命令笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-16T10:48:52.400Z">
+<meta property="og:updated_time" content="2019-09-20T11:18:11.338Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令">
 <meta name="twitter:description" content="linux常用命令笔记。">
@@ -387,7 +387,9 @@ sed &apos;/^$/d&apos; file #删除空白行
 
 sed -i “s/oldstring/newstring/g” grep oldstring -rl path
 比如，要将目录/modules下面所有文件中的zhangsan都修改成lisi，这样做：
-sed -i “s/zhangsan/lisi/g” grep zhangsan -rl /modules
+sed -i “s/zhangsan/lisi/g” `grep zhangsan -rl /modules`
+例子  将hexo目录下dn-lbstatics.qbox.me替换为busuanzi.ibruce.info 确保阅读次数准确
+sed -i &quot;s/dn-lbstatics.qbox.me/busuanzi.ibruce.info/g&quot; `grep dn-lbstatics.qbox.me -rl hexo/`
 
 sed -i “s/6/sk/g” grep 6 -rl /home/work/test/*.sh
 
@@ -408,7 +410,7 @@ awk &apos;{a[$1]++}END{for(i in a)print a[i],i|&quot;sort -k1 -nr|head -n10&quot
 
 消除重复行
 sort unsort.txt | uniq
-</code></pre><p>4   统计 wc<br>    wc -l fileA // 统计A文件行数<br>    wc -w file // 统计单词数<br>    wc -c file // 统计字符数</p>
+</code></pre><p>4   统计 wc<br>    wc [-clw][–help][–version][文件…]<br>    -c或–bytes或–chars 只显示Bytes数。<br>    -l或–lines 只显示行数。<br>    -w或–words 只显示字数。<br>    –help 在线帮助。<br>    –version 显示版本信息。<br>    wc -l fileA // 统计A文件行数<br>    wc -w file // 统计单词数<br>    wc -c file // 统计字符数</p>
 <p>5   hosts文件定时备份及开机恢复   加反斜杠 \cp 执行cp命令时不走alias：（注：推荐这个方法！）<br>    vim hostsbak.sh</p>
 <pre><code>#！/usr/bin/bash
 export LANG=&quot;en_US.UTF-8&quot;
@@ -450,7 +452,6 @@ screen -d yourname -&gt; 远程detach某个session
 screen -d -r yourname -&gt; 结束当前session并回到yourname这个session
 
 Ctrl+D 最小化，后台运行
-
 
 用screen -wipe命令清除该会话
 Attached为当前有会话连接，Detached为会话断开
@@ -524,26 +525,13 @@ uniq 命令用于报告或忽略文件中的重复行，一般与sort命令结�
 另外 &gt;&gt;是将输出内容追加到目标文件中。其他同&gt;  
 
 现有日志文件11.txt内容  需要分组统计nm的量
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;111.85.164.152&quot;,&quot;m1&quot;:&quot;5232a3e61b8a6da97718c841919fbd21&quot;,&quot;mo&quot;:&quot;GIONEE GN5007&quot;,&quot;nm&quot;:&quot;SQG_TODAY_FIRST_OPEN&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;111.85.164.152&quot;,&quot;m1&quot;:&quot;5232a3e61b8a6da97718c841919fbd21&quot;,&quot;mo&quot;:&quot;GIONEE GN5007&quot;,&quot;nm&quot;:&quot;SQG_TODAY_FIRST_OPEN&quot;,&quot;p&quot;:&quot;4&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
 {&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;106.9.163.80&quot;,&quot;m1&quot;:&quot;d181e463d4519d6ef87aa94975dfc6a2&quot;,&quot;mo&quot;:&quot;GIONEE M7&quot;,&quot;nm&quot;:&quot;SQG_TODAY_FIRST_OPEN&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
 {&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;113.6.185.218&quot;,&quot;m1&quot;:&quot;f73a98d4af94f14be333a30784e28a58&quot;,&quot;mo&quot;:&quot;GN5005&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;171.114.50.161&quot;,&quot;m1&quot;:&quot;41888e7e069a263415d321eb056169dc&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;SQG_TODAY_FIRST_OPEN&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;182.38.202.42&quot;,&quot;m1&quot;:&quot;92e697ffc4e2998d2b4a3aa6f80528c1&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;221.9.36.175&quot;,&quot;m1&quot;:&quot;7c9fb26543c69b2bedadeecccc8c6e3b&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;171.114.50.161&quot;,&quot;m1&quot;:&quot;5232a3e61b8a6da97718c841919fbd21&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;SQG_TODAY_FIRST_OPEN&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;182.38.202.42&quot;,&quot;m1&quot;:&quot;92e697ffc4e2998d2b4a3aa6f80528c1&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;9&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;221.9.36.175&quot;,&quot;m1&quot;:&quot;92e697ffc4e2998d2b4a3aa6f80528c1&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
 {&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;123.114.54.186&quot;,&quot;m1&quot;:&quot;43fc6f1d584e39bfd0b88b0b5af94028&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;118.73.228.148&quot;,&quot;m1&quot;:&quot;675943c53e5161097deb893e4c0b2b4a&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;222.172.67.17&quot;,&quot;m1&quot;:&quot;cb5925d867519e51131b04bc31d200a0&quot;,&quot;mo&quot;:&quot;GN5005&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;117.136.27.119&quot;,&quot;m1&quot;:&quot;114c0971ad875d6a4eeb7a78987f8d78&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;117.176.48.89&quot;,&quot;m1&quot;:&quot;efe72f034a116f1f15586c5e2477bcd0&quot;,&quot;mo&quot;:&quot;GN5005&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;101.24.72.57&quot;,&quot;m1&quot;:&quot;2c699cdc8fd50ecfd2806c9e090dba2f&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;111.165.222.53&quot;,&quot;m1&quot;:&quot;a92efbf69cae64d4a0dabd8eabf6a4fd&quot;,&quot;mo&quot;:&quot;GN5005&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;223.104.103.61&quot;,&quot;m1&quot;:&quot;e7db451656d211905173ab398d6bf43f&quot;,&quot;mo&quot;:&quot;GN5005&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;122.159.4.47&quot;,&quot;m1&quot;:&quot;f3385b1d7540069425009d6edff35efc&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;183.228.178.246&quot;,&quot;m1&quot;:&quot;8abbe19f6a55fe90dafb772e62510f65&quot;,&quot;mo&quot;:&quot;F100S&quot;,&quot;nm&quot;:&quot;GIONEE_OPEN_BANGO&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;122.157.162.81&quot;,&quot;m1&quot;:&quot;cf5d7012e3f4818ae9d81bf1993d7e05&quot;,&quot;mo&quot;:&quot;GN5005&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;112.12.207.65&quot;,&quot;m1&quot;:&quot;030bcaa94e2c18f481c35ec54a814b3e&quot;,&quot;mo&quot;:&quot;GIONEE M7&quot;,&quot;nm&quot;:&quot;SQG_TODAY_FIRST_OPEN&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;113.249.244.199&quot;,&quot;m1&quot;:&quot;f7e99c1d80b05af1e3050d6551850fa3&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
-{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;117.136.56.70&quot;,&quot;m1&quot;:&quot;e94a443afa90cbb85eb6414ce4d62fe2&quot;,&quot;mo&quot;:&quot;GIONEE S10&quot;,&quot;nm&quot;:&quot;BANGO_WAKE_UP_SQG_HELPER&quot;,&quot;p&quot;:&quot;1&quot;,&quot;tm&quot;:1568559600,&quot;v&quot;:&quot;2.2.0&quot;}
 
 从每一行取出我们需要的字符串
 cat 11.txt | awk -F &apos;(&quot;nm&quot;:&quot;|&quot;,&quot;p&quot;)&apos; &apos;{print $2}&apos;
@@ -570,26 +558,30 @@ cat 11.txt | awk -F &apos;(&quot;nm&quot;:&quot;|&quot;,&quot;p&quot;)&apos; &ap
 uniq -c 中的-c 代表在每列旁边显示该行重复出现的次数 
 
 按重复次数排序  sort 的 -n：依照数值的大小排序；-r 按照相反顺序排列
-cat 11.txt | awk -F &apos;(&quot;nm&quot;:&quot;|&quot;,&quot;p&quot;)&apos; &apos;{print $2}&apos; | sort | uniq -c | sort -nr
+
+4 BANGO_WAKE_UP_SQG_HELPER
+3 SQG_TODAY_FIRST_OPEN
 
 将结果输出到文件中
 cat 11.txt | awk -F &apos;(&quot;nm&quot;:&quot;|&quot;,&quot;p&quot;)&apos; &apos;{print $2}&apos; | sort | uniq -c | sort -nr &gt; count.txt
 
-第二种方法
-cat * | awk -F , &apos;{print $5}&apos; | awk -F : &apos;{print $2}&apos; | sort | uniq -c | sort -nr
+去重统计总数 不是分组统计  输出5
+cat 11.txt | awk -F &apos;(&quot;m1&quot;:&quot;|&quot;,&quot;mo&quot;)&apos; &apos;{print $2}&apos; | sort | uniq -c | wc -l
+满足nm=SQG_TODAY_FIRST_OPEN 且根据m1去重
+cat 11.txt | grep &apos;&quot;nm&quot;:&quot;SQG_TODAY_FIRST_OPEN&quot;&apos; | awk -F &apos;(&quot;m1&quot;:&quot;|&quot;,&quot;mo&quot;)&apos; &apos;{print $2}&apos; | sort | uniq -c | wc -l
+等同如下jq写法
+cat 11.txt | grep &apos;&quot;nm&quot;:&quot;SQG_TODAY_FIRST_OPEN&quot;&apos; | jq -r .m1 | sort | uniq -c | wc -l
 
-先逗号分割，得到的结果 再：分割
+第二种方法  先逗号分割，得到的结果 再：分割
+cat * | awk -F , &apos;{print $5}&apos; | awk -F : &apos;{print $2}&apos; | sort | uniq -c | sort -nr
 
 第三种方法jq
 cat 1.txt | jq .nm | sort | uniq -c 
 直接jq取.nm的值
 
 cat * | jq -r &apos;.nm&apos; | grep BANGO_WAKE_UP_SQG_HELPER |wc -l  //统计nm为BANGO_WAKE_UP_SQG_HELPER的个数
-
 cat * | jq -r -c &apos;. | {nm:.nm,p:.p}&apos; | grep SQG_TODAY_FIRST_OPEN | grep &apos;&quot;p&quot;:&quot;2&quot;&apos;  //满足nm=SQG_TODAY_FIRST_OPEN且p=2的
-
-
-
+cat * | jq -r -c &apos;. | {nm:.nm,p:.p}&apos; | sort | uniq -c | sort -nr
 
 cat * | awk -F &apos;(&quot;nm&quot;:&quot;|&quot;,&quot;p&quot;)&apos; &apos;{print $2}&apos; | sort | uniq -d   -d或--repeated 仅显示重复出现的行
 -u或--unique 仅显示出现一次的行
@@ -853,7 +845,7 @@ Some of the options include:
 
 
 <div>
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <span id="busuanzi_container_site_pv" style='display:none'>
     本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
     <span class="post-meta-divider">|</span>
