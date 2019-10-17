@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="mysql," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="IMHD">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="mysql简单记点笔记。">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql笔记">
+<meta property="og:url" content="http://yoursite.com/2019/10/17/mysql笔记/index.html">
 <meta property="og:site_name" content="kobe&#39;s blog">
-<meta property="og:description" content="IMHD">
+<meta property="og:description" content="mysql简单记点笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-25T07:23:48.166Z">
+<meta property="og:updated_time" content="2019-10-17T08:28:43.960Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于">
-<meta name="twitter:description" content="IMHD">
+<meta name="twitter:title" content="mysql笔记">
+<meta name="twitter:description" content="mysql简单记点笔记。">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/10/17/mysql笔记/"/>
 
 
 
 
 
-  <title>关于 | kobe's blog</title>
+  <title>mysql笔记 | kobe's blog</title>
   
 
 
@@ -254,33 +255,203 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/mysql笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ayongxiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kobe's blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">关于</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">mysql笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-17T16:19:28+08:00">
+                2019-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span id="busuanzi_value_page_pv"></span>次阅读
+          
+
+          
+
+          
+              <div class="post-description">
+                  mysql简单记点笔记。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>一   常用命令<br>    先连接mysql终端 A服务器连接B服务器的mysql<br>    mysql -h rm-m5e9u8q5la8y35m8y.mysql.rds.aliyuncs.com -u ebeasy_psro_r -p ebsy_pro_db<br>    1.desc eb_jinli_report_one;  查看表结构<br>    2.show create table users\G;  建表语句<br>    3.DROP TABLE table_name ;    删除表<br>    4.truncate table table_name   清空表<br>    5.source /home/xiaoayong/aa.sql  执行sql文件,文件位于A服务器</p>
+<pre><code>在A服务器root用户下
+
+##带条件导出数据
+mysqldump --column-statistics=0 -h rm-m5e9u8q5la8y35m8y.mysql.rds.aliyuncs.com -u ebeasy_psro_r -p ebstat_pro_db ebsy_pro_db --where=&quot;type=1 and value=0&quot; &gt; /home/xiaoayong/eb_gionee_report_zero2.sql 
+在输入密码
+导出到A服务器 /home/xiaoayong目录下
+
+6.更新  UPDATE eb_jinli_report_one SET zsykq_lv =  ROUND((zsykqdj_uv/dbtabdj_uv)*100,2), xqyssfh_pv = 1884739, xqyssfh_uv=105950 where type=0 and date_url=20190905;
+
+7.创建视图
+CREATE VIEW `订单数据` AS SELECT 
+    id  `id`,
+    d  `日期`,
+    c  `订单数`,
+    CASE p
+    WHEN 2 THEN  &apos;blibli&apos; 
+    WHEN 3 THEN  &apos;tokopiedia&apos; 
+    WHEN 4 THEN  &apos;bukalapak&apos; 
+    WHEN 5 THEN  &apos;lazada&apos; 
+    ELSE  &apos;all&apos; 
+    END AS `平台名称`,
+    g   `订单金额(gmv)`,
+    r   `总佣金`,
+    r   `预计返现`,
+    u  `订单用户数`,
+    s  `客单价`,
+    a  `人均下单率`
+FROM eb_report_order ORDER BY stat_date DESC,id DESC;
+</code></pre>
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/12/python3学习笔记/" rel="next" title="python3学习笔记">
+                <i class="fa fa-chevron-left"></i> python3学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 

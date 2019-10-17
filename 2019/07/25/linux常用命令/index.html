@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="kobe&#39;s blog">
 <meta property="og:description" content="linux常用命令笔记。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-20T11:18:11.338Z">
+<meta property="og:updated_time" content="2019-10-17T08:30:26.553Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令">
 <meta name="twitter:description" content="linux常用命令笔记。">
@@ -571,6 +571,10 @@ cat 11.txt | awk -F &apos;(&quot;m1&quot;:&quot;|&quot;,&quot;mo&quot;)&apos; &a
 cat 11.txt | grep &apos;&quot;nm&quot;:&quot;SQG_TODAY_FIRST_OPEN&quot;&apos; | awk -F &apos;(&quot;m1&quot;:&quot;|&quot;,&quot;mo&quot;)&apos; &apos;{print $2}&apos; | sort | uniq -c | wc -l
 等同如下jq写法
 cat 11.txt | grep &apos;&quot;nm&quot;:&quot;SQG_TODAY_FIRST_OPEN&quot;&apos; | jq -r .m1 | sort | uniq -c | wc -l
+##找出nm=EVENT_PASTE_SEARCH_PV 且appid=10004的pv量
+cat * | grep EVENT_PASTE_SEARCH_PV | jq .seg.custom.appid | grep 10004 | wc -l
+##找出nm=EVENT_PASTE_SEARCH_PV 且appid=10004的uv量,根据m1去重
+cat * | grep EVENT_PASTE_SEARCH_PV | grep &apos;&quot;appid&quot;:10004&apos; | jq .m1 | sort | uniq -c | wc -l
 
 第二种方法  先逗号分割，得到的结果 再：分割
 cat * | awk -F , &apos;{print $5}&apos; | awk -F : &apos;{print $2}&apos; | sort | uniq -c | sort -nr
@@ -585,6 +589,20 @@ cat * | jq -r -c &apos;. | {nm:.nm,p:.p}&apos; | sort | uniq -c | sort -nr
 
 cat * | awk -F &apos;(&quot;nm&quot;:&quot;|&quot;,&quot;p&quot;)&apos; &apos;{print $2}&apos; | sort | uniq -d   -d或--repeated 仅显示重复出现的行
 -u或--unique 仅显示出现一次的行
+
+单条日志如下：
+{&quot;ba&quot;:&quot;GIONEE&quot;,&quot;ip&quot;:&quot;112.98.134.22&quot;,&quot;m1&quot;:&quot;0d8578b9e18eeffe0af469f4dbbb5e9b&quot;,&quot;mo&quot;:&quot;GIONEES10C&quot;,&quot;nm&quot;:&quot;AUTO_UPLOAD_USE_TIME_LIST_DATA&quot;,&quot;p&quot;:&quot;1&quot;,&quot;seg&quot;:{&quot;custom&quot;:{&quot;appv&quot;:&quot;3.5.1&quot;,&quot;data&quot;:[&quot;ALIVE_MYSELF@@3@@1570541425477&quot;,&quot;OPEN@@2@@1570549769170&quot;,&quot;OPEN@@2@@1570549869956&quot;,&quot;OPEN@@2@@1570549945797&quot;,&quot;OPEN@@4@@1570549989446&quot;,&quot;OPEN@@2@@1570550009438&quot;,&quot;OPEN@@6@@1570550108061&quot;,&quot;OPEN@@2@@1570550171468&quot;,&quot;OPEN@@2@@1570550250246&quot;,&quot;OPEN@@2@@1570550323524&quot;,&quot;OPEN@@4@@1570550365150&quot;,&quot;OPEN@@2@@1570550404568&quot;,&quot;OPEN@@2@@1570550461831&quot;,&quot;OPEN@@2@@1570550516939&quot;,&quot;OPEN@@7@@1570550614604&quot;],&quot;from&quot;:&quot;gionee&quot;}},&quot;tm&quot;:1570550624,&quot;v&quot;:&quot;2.2.0&quot;}
+
+一：统计活跃PV的旧版拉活的出现OPEN@@的日志条数 
+cat * | grep AUTO_UPLOAD_USE_TIME_LIST_DATA | grep OPEN@@ | wc -l
+
+二：活跃PV的旧版拉活的出现OPEN@@的次数，一条日志里出现多次。用OPEN@@分割得出每条日志出现的次数，然后累加
+cat * | grep AUTO_UPLOAD_USE_TIME_LIST_DATA | grep OPEN@@ | awk -FOPEN@@ &apos;{print NF-1}&apos; | awk &apos;{sum+=$1} END {print sum}&apos; 
+
+NF 表示的是浏览记录的域的个数 
+$NF 表示的最后一个Field（列），即输出最后一个字段的内容
+NF其实是number of field, 即整行(或者说record)里面词 (更准确的翻译应该是域)的总数
+$(NF-1) 就是倒数第二个词
 
 扩展
 grep &apos;17:[0-9][0-9]:&apos; awk.sh | awk -F, &apos;{if(int($19)&gt;=0)print $10}&apos; | sort | uniq -c | sort -n
@@ -764,7 +782,7 @@ Some of the options include:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -775,7 +793,7 @@ Some of the options include:
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -786,7 +804,7 @@ Some of the options include:
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
