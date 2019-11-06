@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[welcome to my blog]]></title>
-    <url>%2F2018%2F11%2F05%2Fwelcome-to-my-blog%2F</url>
-    <content type="text"><![CDATA[阿飘莱勇飞趣–认真创造，安静面对，乐观变化，幸福时间，美。]]></content>
+    <title><![CDATA[hello word]]></title>
+    <url>%2F2019%2F11%2F06%2Fhello-word%2F</url>
+    <content type="text"><![CDATA[You make millions of decisions that mean nothing and then one day your order takes out and it changes your life.]]></content>
+      <categories>
+        <category>note</category>
+      </categories>
+      <tags>
+        <tag>note</tag>
+      </tags>
   </entry>
 </search>
